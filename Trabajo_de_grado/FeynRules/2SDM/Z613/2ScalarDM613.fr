@@ -1,0 +1,150 @@
+(***************************************************************************************************************)
+(******                     This is the FeynRules mod-file for a Scalar Dark Matter EFT                   ******)
+(****** Choose whether Feynman gauge is desired.                                                          ******)
+(****** If set to False, unitary gauge is assumed.                                                          ****)
+(****** Feynman gauge is especially useful for CalcHEP/CompHEP where the calculation is 10-100 times faster. ***)
+(****** Feynman gauge is not supported in MadGraph and Sherpa.                                              ****)
+(***************************************************************************************************************)
+
+(* ************************** *)
+(* *****  Information   ***** *)
+(* ************************** *)
+(* This is an add-on of SM model file, use it together with SM.fr *)
+M$ModelName = "ScalarDM_EFT";
+
+M$Information = {
+
+};
+
+M$InteractionOrderHierarchy = {
+  {EFF4, 2},
+  {EFF6, 2}
+};
+
+
+(* ************************** *)
+(* **** Particle classes **** *)
+(* ************************** *)
+M$ClassesDescription = {
+
+(* Only one extra particle: Our Scalar DM *)
+
+(* Not sure about dafault values *)
+
+  S[4] == {
+    ClassName       -> SDM,
+    SelfConjugate   -> True,
+    Mass            -> {MSDM,10},
+    Width           -> {WSDM,0},
+    PropagatorLabel -> "SDM",
+    PDG             -> 300,
+    ParticleName    -> "~SDM",
+    FullName        -> "Scalar Dark Matter"
+  }
+};
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+M$Parameters = {
+
+(* External parameters *)
+
+(* 6 Wilson coefficients for the operators *)
+
+  LambdaSDM == {
+    ParameterType -> External,
+    BlockName     -> DIM6COEFF,
+    OrderBlock    -> 7,
+    Value         -> 3000,
+    TeX           -> \[Lambda],
+    Description   -> "High Scale"
+  },
+  
+  W41 == {
+    ParameterType -> External,
+    BlockName     -> DIM4COEFF,
+    OrderBlock    -> 1,
+    Value         -> 0.0,
+    TeX           -> Subscript[W4,1],
+    Description   -> "Coeficcient of dim-4 Operator"
+  },
+  
+  W61 == {
+    ParameterType -> External,
+    BlockName     -> DIM6COEFF,
+    OrderBlock    -> 2,
+    Value         -> 0.0,
+    TeX           -> Subscript[W6,1],
+    Description   -> "Coeficcient of dim-6 Operator"
+  },
+
+  W62 == {
+    ParameterType -> External,
+    BlockName     -> DIM6COEFF,
+    OrderBlock    -> 3,
+    Value         -> 0.0,
+    TeX           -> Subscript[W6,2],
+    Description   -> "Coeficcient of dim-6 Operator"
+  },
+
+  W63 == {
+    ParameterType -> External,
+    BlockName     -> DIM6COEFF,
+    OrderBlock    -> 4,
+    Value         -> 0.0,
+    TeX           -> Subscript[W6,3],
+    Description   -> "Coeficcient of dim-6 Operator"
+  },
+
+  W64 == {
+    ParameterType -> External,
+    BlockName     -> DIM6COEFF,
+    OrderBlock    -> 5,
+    Value         -> 0.0,
+    TeX           -> Subscript[W6,4],
+    Description   -> "Coeficcient of dim-6 Operator"
+  },
+
+  W65 == {
+    ParameterType -> External,
+    BlockName     -> DIM6COEFF,
+    OrderBlock    -> 6,
+    Value         -> 0.0,
+    TeX           -> Subscript[W6,5],
+    Description   -> "Coeficcient of dim-6 Operator"
+  }
+  
+  (* Internal Parameters *)
+
+};
+  
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* Operators *)
+
+(* Dim 4 operators *)
+
+LD4 := W41 HC[H] SDM SDM H; 
+
+(* Dim 6 operators *)
+
+LD6:=Block[{mu},
+LD61 = W61 del[del[HC[H], mu],mu] SDM SDM H;
+LD62 = W65 HC[H] HC[H] SDM SDM H H;
+LD61 + LD62
+];
+
+(* Dim 6 operators for force tensors*)
+
+LDF6:=Block[{mu,nu,ii,aa},
+LDF1 = W62 SDM SDM FS[B,mu,nu] FS[B,mu,nu];
+LDF2 = W63 SDM SDM FS[Wi,mu,nu,ii] FS[Wi,mu,nu,ii];
+LDF3 = W64 SDM SDM FS[G,mu,nu,aa] FS[G,mu,nu,aa];
+LDF1 + LDF2 + LDF3
+];
+
+LSDMEFT:= LSM + LD4 + LD6 + LDF6;

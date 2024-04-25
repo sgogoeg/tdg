@@ -1,0 +1,195 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      6556,        187]
+NotebookOptionsPosition[      5532,        149]
+NotebookOutlinePosition[      5985,        167]
+CellTagsIndexPosition[      5942,        164]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Quit", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.4921467751527157`*^9, 3.492146776183146*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CurrentDir", "=", 
+   RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7447151265080214`*^9, 3.744715139953951*^9}}],
+
+Cell[BoxData[
+ RowBox[{"$FeynRulesPath", "=", 
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"CurrentDir", "<>", "\"\<../../feynrules-2.3.32\>\""}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.41265862251538*^9, 3.412658649947229*^9}, {
+  3.423415585782702*^9, 3.423415597189939*^9}, {3.4234163173467493`*^9, 
+  3.4234163227881193`*^9}, {3.744715123325588*^9, 3.744715179270002*^9}}],
+
+Cell[BoxData[
+ RowBox[{"<<", "FeynRules`"}]], "Input",
+ CellChangeTimes->{{3.547535564344927*^9, 3.547535564971527*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", "CurrentDir", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.419073170860696*^9, 3.419073182827229*^9}, {
+  3.744715201044201*^9, 3.74471520315282*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Loading the Model", "Title",
+ CellChangeTimes->{{3.79244005707275*^9, 3.792440063507267*^9}}],
+
+Cell["We first load in the model file (together with SM.fr)", "Text",
+ CellChangeTimes->{{3.792440081583366*^9, 3.792440095596834*^9}}],
+
+Cell[BoxData[
+ RowBox[{"LoadModel", "[", 
+  RowBox[{"\"\<SM.fr\>\"", ",", "\"\<HeavyScalarEFT.fr\>\""}], "]"}]], "Input",\
+
+ CellChangeTimes->{{3.4022069973481913`*^9, 3.402207011768662*^9}, 
+   3.4022081212072697`*^9, {3.402208250379383*^9, 3.402208254043104*^9}, 
+   3.4027466057480917`*^9, {3.403240270135737*^9, 3.403240277228945*^9}, 
+   3.403266503388291*^9, {3.403267649630335*^9, 3.40326765417397*^9}, {
+   3.403269919787421*^9, 3.403269921965273*^9}, {3.403347551273425*^9, 
+   3.403347555049163*^9}, 3.4044490490588417`*^9, {3.411744339876704*^9, 
+   3.411744340012457*^9}, {3.4121886924550533`*^9, 3.412188699157571*^9}, 
+   3.412188808811866*^9, 3.4121888580521603`*^9, {3.412450464077868*^9, 
+   3.412450464378695*^9}, {3.413715097460478*^9, 3.41371509757642*^9}, {
+   3.41440825334604*^9, 3.414408254159686*^9}, {3.41862573831756*^9, 
+   3.4186257392223186`*^9}, {3.4190731862389174`*^9, 3.419073187003003*^9}, {
+   3.419073336802393*^9, 3.4190733374513063`*^9}, {3.4190828041801767`*^9, 
+   3.4190828048079023`*^9}, 3.542453089813714*^9, 3.547534567644828*^9, {
+   3.792440067303673*^9, 3.792440073043148*^9}}],
+
+Cell[BoxData[
+ RowBox[{"LoadRestriction", "[", 
+  RowBox[{"\"\<Massless.rst\>\"", ",", "\"\<Cabibbo.rst\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.547535575308606*^9, 3.547535589236651*^9}, {
+  3.745882999606151*^9, 3.745883001602642*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["The Lagrangian", "Section",
+ CellChangeTimes->{{3.411910065227421*^9, 3.411910071535137*^9}, {
+  3.7924401856089973`*^9, 3.79244018745649*^9}}],
+
+Cell["\<\
+The SM Lagrangian is not changed, the Heavy Scalar EFT Lagrangian is\
+\>", "Text",
+ CellChangeTimes->{{3.79244023785155*^9, 3.792440273125349*^9}, {
+  3.7924404284431877`*^9, 3.792440429957967*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "LWD4", ",", "LZD4", ",", "LWD6", ",", "LZD6", ",", "LAAD6", ",", "LZAD6", 
+   ",", "LHLAA", ",", "LHLZA"}], "}"}]], "Input",
+ CellChangeTimes->{{3.7924402745363693`*^9, 3.792440284719664*^9}, {
+  3.792440388170953*^9, 3.7924404164586687`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Outputs", "Section",
+ CellChangeTimes->{
+  3.411910944409371*^9, {3.412185514054689*^9, 3.412185517014236*^9}, {
+   3.792440440063868*^9, 3.792440440639955*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["UFO output", "Subsection",
+ CellChangeTimes->{{3.4119110460271273`*^9, 3.411911049405038*^9}, {
+  3.411911150323291*^9, 3.4119111515122623`*^9}, {3.5074389822322817`*^9, 
+  3.507438983565652*^9}, {3.507439158477231*^9, 3.507439159035309*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"WriteUFO", "[", 
+    RowBox[{"LHHEFT", ",", 
+     RowBox[{"AddDecays", "\[Rule]", "False"}]}], "]"}], ";"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Force", " ", "AddDecays", " ", "to", " ", "False"}], ",", " ", 
+    RowBox[{
+    "since", " ", "in", " ", "the", " ", "version", " ", "of", " ", "FR", " ",
+      "we", " ", "used", " ", 
+     RowBox[{"(", 
+      RowBox[{"2.3", ".32"}], ")"}]}], ",", " ", 
+    RowBox[{
+    "the", " ", "calculated", " ", "amplitude", " ", "for", " ", "Decay", " ",
+      "is", " ", "not", " ", "correct", " ", "for", " ", "those", " ", 
+     "exotic", " ", "Lorentz", " ", "structure"}]}], " ", "*)"}]}]}], "Input",\
+
+ CellChangeTimes->{
+  3.412185367693318*^9, 3.412185407947097*^9, {3.5074391727475023`*^9, 
+   3.5074391804929533`*^9}, {3.744715252963217*^9, 3.744715253392498*^9}, {
+   3.767355897177628*^9, 3.767355966221299*^9}, 3.7673560969422503`*^9, {
+   3.770922515687976*^9, 3.7709225236663837`*^9}, {3.79244045921045*^9, 
+   3.792440541191772*^9}, {3.792440579132064*^9, 3.792440598248826*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1280, 755},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (April 16, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 120, 2, 43, "Input"],
+Cell[668, 24, 184, 4, 43, "Input"],
+Cell[855, 30, 381, 7, 43, "Input"],
+Cell[1239, 39, 120, 2, 43, "Input"],
+Cell[1362, 43, 206, 4, 43, "Input"],
+Cell[CellGroupData[{
+Cell[1593, 51, 99, 1, 137, "Title"],
+Cell[1695, 54, 135, 1, 46, "Text"],
+Cell[1833, 57, 1125, 17, 43, "Input"],
+Cell[2961, 76, 246, 5, 43, "Input"],
+Cell[CellGroupData[{
+Cell[3232, 85, 149, 2, 95, "Section"],
+Cell[3384, 89, 208, 4, 46, "Text"],
+Cell[3595, 95, 286, 6, 43, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3918, 106, 167, 3, 95, "Section"],
+Cell[CellGroupData[{
+Cell[4110, 113, 248, 3, 65, "Subsection"],
+Cell[4361, 118, 1131, 26, 119, "Input"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
