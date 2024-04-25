@@ -1,0 +1,162 @@
+(***************************************************************************************************************)
+(******                     This is the FeynRules mod-file for a Scalar Dark Matter EFT                   ******)
+(****** Choose whether Feynman gauge is desired.                                                          ******)
+(****** If set to False, unitary gauge is assumed.                                                          ****)
+(****** Feynman gauge is especially useful for CalcHEP/CompHEP where the calculation is 10-100 times faster. ***)
+(****** Feynman gauge is not supported in MadGraph and Sherpa.                                              ****)
+(***************************************************************************************************************)
+
+(* ************************** *)
+(* *****  Information   ***** *)
+(* ************************** *)
+(* This is an add-on of SM model file, use it together with SM.fr *)
+M$ModelName = "ScalarDM_EFT";
+
+M$Information = {
+
+};
+
+M$InteractionOrderHierarchy = {
+  {EFF4, 2},
+  {EFF6, 2}
+};
+
+FeynmanGauge = True;
+M$vevs = { {Phi[2],vev} };
+
+(* ************************** *)
+(* **** Particle classes **** *)
+(* ************************** *)
+M$ClassesDescription = {
+
+(* Only one extra particle: Our Scalar DM *)
+
+(* Not sure about dafault values *)
+
+  S[12] == {
+    ClassName       -> SDM,
+    SelfConjugate   -> True,
+    Mass            -> {MSDM,10},
+    Width           -> {WSDM,0},
+    PropagatorLabel -> "SDM",
+    PDG             -> 300,
+    ParticleName    -> "~SDM",
+    FullName        -> "Scalar Dark Matter"
+  }
+};
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+M$Parameters = {
+
+(* External parameters *)
+
+(* 6 Wilson coefficients for the operators *)
+
+  LambdaSDM == {
+    ParameterType -> External,
+    BlockName     -> DIM6COEFF,
+    OrderBlock    -> 7,
+    Value         -> 3000,
+    TeX           -> \[Lambda],
+    Description   -> "High Scale"
+  },
+  
+  W41 == {
+    ParameterType -> External,
+    BlockName     -> DIM4COEFF,
+    OrderBlock    -> 1,
+    Value         -> 0.0,
+    TeX           -> Subscript[W4,1],
+    InteractionOrder -> {EFF4,1},
+    Description   -> "Coeficcient of dim-4 Operator"
+  },
+  
+  W61 == {
+    ParameterType -> External,
+    BlockName     -> DIM6COEFF,
+    OrderBlock    -> 2,
+    Value         -> 0.0,
+    TeX           -> Subscript[W6,1],
+    InteractionOrder -> {EFF6,1},
+    Description   -> "Coeficcient of dim-6 Operator"
+  },
+
+  W62 == {
+    ParameterType -> External,
+    BlockName     -> DIM6COEFF,
+    OrderBlock    -> 3,
+    Value         -> 0.0,
+    TeX           -> Subscript[W6,2],
+    InteractionOrder -> {EFF6,1},
+    Description   -> "Coeficcient of dim-6 Operator"
+  },
+
+  W63 == {
+    ParameterType -> External,
+    BlockName     -> DIM6COEFF,
+    OrderBlock    -> 4,
+    Value         -> 0.0,
+    TeX           -> Subscript[W6,3],
+    InteractionOrder -> {EFF6,1},
+    Description   -> "Coeficcient of dim-6 Operator"
+  },
+
+  W64 == {
+    ParameterType -> External,
+    BlockName     -> DIM6COEFF,
+    OrderBlock    -> 5,
+    Value         -> 0.0,
+    TeX           -> Subscript[W6,4],
+    InteractionOrder -> {EFF6,1},
+    Description   -> "Coeficcient of dim-6 Operator"
+  },
+
+  W65 == {
+    ParameterType -> External,
+    BlockName     -> DIM6COEFF,
+    OrderBlock    -> 6,
+    Value         -> 0.0,
+    TeX           -> Subscript[W6,5],
+    InteractionOrder -> {EFF6,1},
+    Description   -> "Coeficcient of dim-6 Operator"
+  }
+  
+  (* Internal Parameters *)
+
+};
+  
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* Operators *)
+
+(* Dim 4 operators *)
+
+LD4 := Block[{ii, feynmangaugerules},
+	feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
+	ExpandIndices[MSDM^2/2 (SDM SDM) + W41 (SDM SDM Phibar[ii] Phi[ii]), FlavorExpand->{SU2D}]/.feynmangaugerules];
+
+(* Dim 6 operators *)
+
+LD6:=Block[{mu, ii, jj, feynmangaugerules},
+	feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
+	LD61 = ExpandIndices[W61 del[del[Phibar[ii], mu],mu] SDM SDM Phi[ii], FlavorExpand->{SU2D}];
+	LD62 = ExpandIndices[W65 Phibar[ii] Phi[ii] Phibar[jj] Phi[jj] SDM SDM, FlavorExpand->{SU2D}];
+	LD61 + LD62
+	/.feynmangaugerules];
+
+(* Dim 6 operators for force tensors*)
+
+LDF6:=Block[{mu, nu, ii, aa},
+	feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
+	LDF1 = ExpandIndices[W62 SDM SDM FS[B,mu,nu] FS[B,mu,nu]];
+	LDF2 = ExpandIndices[W63 SDM SDM FS[Wi,mu,nu,ii] FS[Wi,mu,nu,ii], FlavorExpand->{SU2W}];
+	LDF3 = ExpandIndices[W64 SDM SDM FS[G,mu,nu,aa] FS[G,mu,nu,aa], FlavorExpand->{SU2W}];
+	LDF1 + LDF2 + LDF3
+	/.feynmangaugerules];
+
+LSDMEFT:= LSM + LD4 + LD6 + LDF6;

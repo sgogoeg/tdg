@@ -1,0 +1,179 @@
+(***************************************************************************************************************)
+(******                     This is the FeynRules mod-file for a Scalar Dark Matter EFT                   ******)
+(****** Choose whether Feynman gauge is desired.                                                          ******)
+(****** If set to False, unitary gauge is assumed.                                                          ****)
+(****** Feynman gauge is especially useful for CalcHEP/CompHEP where the calculation is 10-100 times faster. ***)
+(****** Feynman gauge is not supported in MadGraph and Sherpa.                                              ****)
+(***************************************************************************************************************)
+
+(* ************************** *)
+(* *****  Information   ***** *)
+(* ************************** *)
+(* This is an add-on of SM model file, use it together with SM.fr *)
+M$ModelName = "2ScalarDMZ4";
+
+M$Information = {
+
+};
+
+FeynmanGauge = True;
+M$vevs = { {Phi[2],vev} };
+
+
+M$InteractionOrderHierarchy = {
+  
+};
+
+
+(* ************************** *)
+(* **** Particle classes **** *)
+(* ************************** *)
+M$ClassesDescription = {
+
+(* 2 extra particles: *)
+
+(* Not sure about dafault values *)
+
+  S[4] == {
+    ClassName       -> Phi1,
+    SelfConjugate   -> False,
+    Mass            -> {MPhi1,10},
+    Width           -> {WPhi1,0},
+    PropagatorLabel -> "Phi1",
+    PDG             -> 300,
+    ParticleName    -> "~Phi1",
+    FullName        -> "Scalar Complex Dark Matter"
+  },
+  
+  S[5] == {
+    ClassName       -> Phi2,
+    SelfConjugate   -> True,
+    Mass            -> {MPhi2,10},
+    Width           -> {WPhi2,0},
+    PropagatorLabel -> "Phi2",
+    PDG             -> 301,
+    ParticleName    -> "~Phi2",
+    FullName        -> "Scalar Real Dark Matter"
+  }
+};
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+M$Parameters = {
+(* External parameters *)
+
+(* 6 Wilson coefficients for the operators *)
+
+  mu1 == {
+    ParameterType -> External,
+    BlockName     -> V1,
+    OrderBlock    -> 1,
+    Value         -> 0,
+    TeX           -> Subscript[\[Mu],1]
+  },
+  
+  lambda41 == {
+    ParameterType -> External,
+    BlockName     -> V1,
+    OrderBlock    -> 2,
+    Value         -> 0,
+    TeX           -> Subscript[\[Lambda],41]
+  },
+  
+   mu2 == {
+    ParameterType -> External,
+    BlockName     -> V1,
+    OrderBlock    -> 3,
+    Value         -> 0,
+    TeX           -> Subscript[\[Mu],2]
+  },
+  
+  lambda42 == {
+    ParameterType -> External,
+    BlockName     -> V1,
+    OrderBlock    -> 4,
+    Value         -> 0,
+    TeX           -> Subscript[\[Lambda],42]
+  },
+  
+  lambda412 == {
+    ParameterType -> External,
+    BlockName     -> V1,
+    OrderBlock    -> 5,
+    Value         -> 0,
+    TeX           -> Subscript[\[Lambda],412]
+  },
+  
+  lambdaS1 == {
+    ParameterType -> External,
+    BlockName     -> V1,
+    OrderBlock    -> 6,
+    Value         -> 0,
+    TeX           -> Subscript[\[Lambda],S1]
+  },
+  
+  lambdaS2 == {
+    ParameterType -> External,
+    BlockName     -> V1,
+    OrderBlock    -> 7,
+    Value         -> 0,
+    TeX           -> Subscript[\[Lambda],S2]
+  },
+  
+  muS1 == {
+    ParameterType -> External,
+    BlockName     -> V1,
+    OrderBlock    -> 8,
+    Value         -> 0,
+    TeX           -> Subscript[\[Mu],S1]
+  },
+  
+  lambda51 == {
+    ParameterType -> External,
+    BlockName     -> V1,
+    OrderBlock    -> 9,
+    Value         -> 0,
+    TeX           -> Subscript[\[Lambda],51]
+  },
+  
+  (* Internal Parameters *)
+    
+  MPhi1 == {
+    ParameterType    -> Internal,
+    BlockName        -> V1,
+    Value            -> mu1^2 + 1/2 lambdaS1 vev^2,
+    TeX              -> Subscript[M, Subscript[\[Phi],1]
+  },
+  
+  MPhi2 == {
+    ParameterType    -> Internal,
+    BlockName        -> V1,
+    Value            -> mu2^2 + 1/2 lambdaS2 vev^2,
+    TeX              -> Subscript[M, Subscript[\[Phi],2]
+  }
+  
+};
+  
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* Operators *)
+
+(* V1 *)
+
+V1 := Block[{ii, feynmangaugerules},
+  feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
+
+  ExpandIndices[ mu1^2 HC[Phi1] Phi1 + lambda41 HC[Phi1] Phi1 HC[Phi1] Phi1 + 1/2 mu2^2 Phi2^2 + lambda42 Phi2^4 + lambda412 HC[Phi1] Phi1 Phi2^2 + lambdaS1 HC[Phi1] Phi1 Phibar[ii] Phi[ii] + 1/2 lambdaS2 Phi2^2 Phibar[ii] Phi[ii] , FlavorExpand->{SU2D}]/.feynmangaugerules
+ ];
+
+(* V2 *)
+
+V2 := 1/2 muS1 HC[Phi1] Phi1 Phi2 + 1/2 lambda51 HC[Phi1] Phi1 HC[Phi1] Phi1;
+
+(* Dim 6 operators for force tensors*)
+
+L2SDMZ4:= LSM + V1 + V2;
