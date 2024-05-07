@@ -35,7 +35,7 @@ M$ClassesDescription = {
 (* Not sure about dafault values *)
 
   S[4] == {
-    ClassName       -> Phi1,
+    ClassName       -> PhiDM1,
     SelfConjugate   -> False,
     Mass            -> {MPhi1,10},
     Width           -> {WPhi1,0},
@@ -46,7 +46,7 @@ M$ClassesDescription = {
   },
   
   S[5] == {
-    ClassName       -> Phi2,
+    ClassName       -> PhiDM2,
     SelfConjugate   -> True,
     Mass            -> {MPhi2,10},
     Width           -> {WPhi2,0},
@@ -65,7 +65,7 @@ M$Parameters = {
 
 (* 6 Wilson coefficients for the operators *)
 
-  mu1 == {
+  muDM1 == {
     ParameterType -> External,
     BlockName     -> V1,
     OrderBlock    -> 1,
@@ -81,7 +81,7 @@ M$Parameters = {
     TeX           -> Subscript[\[Lambda],41]
   },
   
-   mu2 == {
+   muDM2 == {
     ParameterType -> External,
     BlockName     -> V1,
     OrderBlock    -> 3,
@@ -167,14 +167,14 @@ M$Parameters = {
 V1 := Block[{ii, feynmangaugerules},
   feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
 
-  mu1^2 HC[Phi1] Phi1 + lambda41 HC[Phi1] Phi1 HC[Phi1] Phi1 + 1/2 mu2^2 Phi2^2 + lambda42 Phi2^4 + lambda412 HC[Phi1] Phi1 Phi2^2 + lambdaS1 HC[Phi1] Phi1 Phibar[ii] Phi[ii] + 1/2 lambdaS2 Phi2^2 Phibar[ii] Phi[ii] /.feynmangaugerules
+  muDM1^2 HC[PhiDM1] PhiDM1 + lambda41 HC[PhiDM1] PhiDM1 HC[PhiDM1] PhiDM1 + 1/2 muDM2^2 PhiDM2^2 + lambda42 PhiDM2^4 + lambda412 HC[PhiDM1] PhiDM1 PhiDM2^2 + lambdaS1 HC[PhiDM1] PhiDM1 Phibar[ii] Phi[ii] + 1/2 lambdaS2 PhiDM2^2 Phibar[ii] Phi[ii] /.feynmangaugerules
  ];
 
 (* V2 *)
 
 V2 := Block[{feynmangaugerules},
 	feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
-  1/2 muS1 HC[Phi1] Phi1 Phi2 + 1/2 lambda51 HC[Phi1] Phi1 HC[Phi1] Phi1 + HC[1/2 muS1 HC[Phi1] Phi1 Phi2 + 1/2 lambda51 HC[Phi1] Phi1 HC[Phi1] Phi1] /.feynmangaugerules 
+  1/2 muS1 HC[PhiDM1] PhiDM1 PhiDM2 + 1/2 lambda51 HC[PhiDM1] PhiDM1 HC[PhiDM1] PhiDM1 + HC[1/2 muS1 HC[PhiDM1] PhiDM1 PhiDM2 + 1/2 lambda51 HC[PhiDM1] PhiDM1 HC[PhiDM1] PhiDM1] /.feynmangaugerules 
 ];
 
 (* Dim 6 operators for force tensors*)

@@ -18,5 +18,5 @@ d-quark      |d          |d~         |1       |1     |0              |0         
 s-quark      |s          |s~         |3       |1     |0              |0              |3    |-1 |s         |s~            |
 b-quark      |b          |b~         |5       |1     |MB             |0              |3    |-1 |b         |b~            |
 H            |H          |H          |25      |0     |MH             |!WH            |1    |0  |H         |H             |
-Scalar Comple|~Phi1      |Phi1~      |300     |0     |MPhi1          |0              |1    |0  |~Phi1     |Phi1~         |
+Scalar Comple|~Phi1      |PhiDM1~    |300     |0     |MPhi1          |0              |1    |0  |~Phi1     |PhiDM1~       |
 Scalar Real D|~~Phi2     |~~Phi2     |301     |0     |MPhi2          |0              |1    |0  |~~Phi2    |~~Phi2        |
