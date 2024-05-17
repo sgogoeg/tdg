@@ -35,26 +35,56 @@ M$ClassesDescription = {
 (* Not sure about dafault values *)
 
   S[4] == {
-    ClassName       -> PhiDM1,
-    SelfConjugate   -> False,
-    Mass            -> {MPhi1,10},
-    Width           -> {WPhi1,0},
-    PropagatorLabel -> "Phi1",
+    ClassName       -> DM1Re,
+    SelfConjugate   -> True,
+    Mass            -> {MDM1,Internal},
+    Width           -> {WDM1,0},
+    PropagatorLabel -> "DM1Re",
     PDG             -> 300,
-    ParticleName    -> "~Phi1",
+    ParticleName    ->"DM1Re",
+    FullName        -> "Scalar Complex Dark Matter Real Part"
+  },
+
+  S[5] == {
+    ClassName       -> DM1Im,
+    SelfConjugate   -> True,
+    Mass            -> {MDM1,Internal},
+    Width           -> {WDM1,0},
+    PropagatorLabel -> "DM1Im",
+    PDG             -> 301,
+    ParticleName    ->"DM1Im",
+    FullName        -> "Scalar Complex Dark Matter Complex Part"
+  },
+
+  S[6] == {
+    ClassName       -> DM1,
+    SelfConjugate   -> False,
+    Indices          -> {},
+    Mass            -> {MDM1,Internal},
+    Width           -> {WDM1,0},
+    PropagatorLabel -> "DM1",
+    PDG             -> 302,
+    Definitions    -> { DM1 -> DM1Re + I DM2Im}
+    ParticleName    ->"~DM1",
     FullName        -> "Scalar Complex Dark Matter"
   },
   
-  S[5] == {
-    ClassName       -> PhiDM2,
+  S[7] == {
+    ClassName       -> DM2,
     SelfConjugate   -> True,
-    Mass            -> {MPhi2,10},
-    Width           -> {WPhi2,0},
-    PropagatorLabel -> "Phi2",
-    PDG             -> 301,
-    ParticleName    -> "~~Phi2",
+    Mass            -> {MDM2,Internal},
+    Width           -> {WDM2,0},
+    PropagatorLabel -> "DM2",
+    PDG             -> 303,
+    ParticleName    -> "~~DM2",
     FullName        -> "Scalar Real Dark Matter"
   }
+
+
+
+  (*  *)
+
+  
 };
 
 (* ************************** *)
@@ -63,9 +93,9 @@ M$ClassesDescription = {
 M$Parameters = {
 (* External parameters *)
 
-(* 6 Wilson coefficients for the operators *)
+(* Coefficients *)
 
-  muDM1 == {
+  DMac1 == {
     ParameterType -> External,
     BlockName     -> V1,
     OrderBlock    -> 1,
@@ -73,7 +103,7 @@ M$Parameters = {
     TeX           -> Subscript[\[Mu],1]
   },
   
-  lambda41 == {
+  DMlamb41 == {
     ParameterType -> External,
     BlockName     -> V1,
     OrderBlock    -> 2,
@@ -81,7 +111,7 @@ M$Parameters = {
     TeX           -> Subscript[\[Lambda],41]
   },
   
-   muDM2 == {
+   DMac2 == {
     ParameterType -> External,
     BlockName     -> V1,
     OrderBlock    -> 3,
@@ -89,7 +119,7 @@ M$Parameters = {
     TeX           -> Subscript[\[Mu],2]
   },
   
-  lambda42 == {
+  DMlamb42 == {
     ParameterType -> External,
     BlockName     -> V1,
     OrderBlock    -> 4,
@@ -97,7 +127,7 @@ M$Parameters = {
     TeX           -> Subscript[\[Lambda],42]
   },
   
-  lambda412 == {
+  DMlamb412 == {
     ParameterType -> External,
     BlockName     -> V1,
     OrderBlock    -> 5,
@@ -105,7 +135,7 @@ M$Parameters = {
     TeX           -> Subscript[\[Lambda],412]
   },
   
-  lambdaS1 == {
+  DMlambS1 == {
     ParameterType -> External,
     BlockName     -> V1,
     OrderBlock    -> 6,
@@ -113,7 +143,7 @@ M$Parameters = {
     TeX           -> Subscript[\[Lambda],S1]
   },
   
-  lambdaS2 == {
+  DMlambS2 == {
     ParameterType -> External,
     BlockName     -> V1,
     OrderBlock    -> 7,
@@ -121,7 +151,7 @@ M$Parameters = {
     TeX           -> Subscript[\[Lambda],S2]
   },
   
-  muS1 == {
+  DMacS1 == {
     ParameterType -> External,
     BlockName     -> V1,
     OrderBlock    -> 8,
@@ -129,7 +159,7 @@ M$Parameters = {
     TeX           -> Subscript[\[Mu],S1]
   },
   
-  lambda51 == {
+  DMlamb51 == {
     ParameterType -> External,
     BlockName     -> V1,
     OrderBlock    -> 9,
@@ -139,17 +169,17 @@ M$Parameters = {
   
   (* Internal Parameters *)
     
-  MPhi1 == {
+  MDM1 == {
     ParameterType    -> Internal,
     BlockName        -> V1,
-    Value            -> mu1^2 + 1/2 lambdaS1 vev^2,
+    Value            -> DMac1^2 + 1/2 DMlambS1 vev^2,
     TeX              -> Subscript[M, Subscript[\[Phi],1]]
   },
   
-  MPhi2 == {
+  MDM2 == {
     ParameterType    -> Internal,
     BlockName        -> V1,
-    Value            -> mu2^2 + 1/2 lambdaS2 vev^2,
+    Value            -> DMac2^2 + 1/2 DMlambS2 vev^2,
     TeX              -> Subscript[M, Subscript[\[Phi],2]]
   }
   
@@ -166,17 +196,14 @@ M$Parameters = {
 
 V1 := Block[{ii, feynmangaugerules},
   feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
-
-  muDM1^2 HC[PhiDM1] PhiDM1 + lambda41 HC[PhiDM1] PhiDM1 HC[PhiDM1] PhiDM1 + 1/2 muDM2^2 PhiDM2^2 + lambda42 PhiDM2^4 + lambda412 HC[PhiDM1] PhiDM1 PhiDM2^2 + lambdaS1 HC[PhiDM1] PhiDM1 Phibar[ii] Phi[ii] + 1/2 lambdaS2 PhiDM2^2 Phibar[ii] Phi[ii] /.feynmangaugerules
- ];
+  DMac1 DMac1 HC[DM1] DM1 + DMlamb41 HC[DM1] DM1 HC[DM1] DM1 + 1/2 DMac2 DMac2 DM2 DM2 + DMlamb42 DM2 DM2 DM2 DM2 + DMlamb412 HC[DM1] DM1 DM2 DM2 + DMlambS1 HC[DM1] DM1 Phibar[ii] Phi[ii] + 1/2 DMlambS2 DM2 DM2 Phibar[ii] Phi[ii] /.feynmangaugerules];
 
 (* V2 *)
 
 V2 := Block[{feynmangaugerules},
 	feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
-  1/2 muS1 HC[PhiDM1] PhiDM1 PhiDM2 + 1/2 lambda51 HC[PhiDM1] PhiDM1 HC[PhiDM1] PhiDM1 + HC[1/2 muS1 HC[PhiDM1] PhiDM1 PhiDM2 + 1/2 lambda51 HC[PhiDM1] PhiDM1 HC[PhiDM1] PhiDM1] /.feynmangaugerules 
-];
+  1/2 DMacS1 DM1 DM1 DM2 + 1/2 DMlamb51 DM1 DM1 DM1 DM1 + HC[1/2 DMacS1 DM1 DM1 DM2] + HC[1/2 DMlamb51 DM1 DM1 DM1 DM1] /.feynmangaugerules];
 
-(* Dim 6 operators for force tensors*)
+(* Complete Lagrangian *)
 
 L2SDMZ4:= LSM + V1 + V2;

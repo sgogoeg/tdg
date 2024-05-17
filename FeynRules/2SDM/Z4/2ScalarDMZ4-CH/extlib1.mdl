@@ -9,7 +9,7 @@ External libraries  and citation                                      <|
 %   http://feynrules.phys.ucl.ac.be
 %
 %Model version: <>0<>
-%Date: 2024.5.6
+%Date: 2024.5.16
 
 %This prototype is used when LHA support is turned on.
 extern int access(const char *pathname, int mode);
