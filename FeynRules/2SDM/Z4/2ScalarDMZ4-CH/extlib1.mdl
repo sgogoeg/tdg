@@ -8,8 +8,14 @@ External libraries  and citation                                      <|
 %Further information can be found at:
 %   http://feynrules.phys.ucl.ac.be
 %
-%Model version: <>0<>
-%Date: 2024.5.16
+%This model implementation was created by:
+%   S. Gonzalez
+%Emails: 
+%   simon.gonzalezg1@udea.edu.co
+%Model version: 1
+%Date: 21. 05. 2024
+%Further information can be found at: 
+%   
 
 %This prototype is used when LHA support is turned on.
 extern int access(const char *pathname, int mode);

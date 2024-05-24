@@ -8,21 +8,23 @@ aS             |0.1184       |Strong coupling constant at the Z pole            
 ymb            |4.7          |Bottom Yukawa mass                                                        |
 ymt            |172          |Top Yukawa mass                                                           |
 ymtau          |1.777        |Tau Yukawa mass                                                           |
-DMac1          |0            |DMac1                                                                     |
-DMlamb41       |0            |DMlamb41                                                                  |
-DMac2          |0            |DMac2                                                                     |
-DMlamb42       |0            |DMlamb42                                                                  |
-DMlamb412      |0            |DMlamb412                                                                 |
-DMlambS1       |0            |DMlambS1                                                                  |
-DMlambS2       |0            |DMlambS2                                                                  |
-DMacS1         |0            |DMacS1                                                                    |
-DMlamb51       |0            |DMlamb51                                                                  |
+DMac1          |0            |Coupling of DM particle 1                                                 |
+DMlamb41       |0            |Coupling of DM particle 1                                                 |
+DMac2          |0            |Coupling of DM particle 2                                                 |
+DMlamb42       |0            |Coupling of DM particle 2                                                 |
+DMlamb412      |0            |Coupling of DM particles 1 and 2                                          |
+DMlambS1       |0            |Coupling of DM particle 1                                                 |
+DMlambS2       |0            |Coupling of DM particle 2                                                 |
+DMacS1         |0            |Coupling of DM particle 1                                                 |
+DMlamb51       |0            |Coupling of DM particle 1                                                 |
 GG             |1.21977796370|Strong coupling constant at the Z pole   This value will be ignored and ca|
 MZ             |91.1876      |Mass of G0.                                                               |
 MTA            |1.777        |Mass of ta.                                                               |
 MT             |172          |Mass of t.                                                                |
 MB             |4.7          |Mass of b.                                                                |
 MH             |125          |Mass of H.                                                                |
+MDM1Re         |1            |Mass of PRIVATE`MassToPart[MDM1Re].                                       |
+MDM1Im         |1            |Mass of PRIVATE`MassToPart[MDM1Im].                                       |
 %WZ            |2.4952       |Width of G0.                                                              |
 %WW            |2.085        |Width of GP.                                                              |
 %WT            |1.50833649   |Width of t.                                                               |
