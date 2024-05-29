@@ -1,13 +1,13 @@
 2ScalarDMZ4
  Vertices
 A1           |A2           |A3           |A4           |>         Factor              <|>  Lorentz part                                                          <|
-DM1          |DM1          |~~DM2        |             |x1x0                           |1
-DM1~         |DM1~         |~~DM2        |             |x2x0                           |1
-DM1          |DM1          |DM1~         |DM1~         |x3x0                           |1
-DM1          |DM1~         |~~DM2        |~~DM2        |x4x0                           |1
-~~DM2        |~~DM2        |~~DM2        |~~DM2        |x5x0                           |1
-DM1          |DM1          |DM1          |DM1          |x6x0                           |1
-DM1~         |DM1~         |DM1~         |DM1~         |x7x0                           |1
+DM1          |DM1          |DM1~         |DM1~         |x1x0                           |1
+DM1          |DM1~         |~~DM2        |~~DM2        |x2x0                           |1
+~~DM2        |~~DM2        |~~DM2        |~~DM2        |x3x0                           |1
+DM1          |DM1          |DM1          |DM1          |x4x0                           |1
+DM1~         |DM1~         |DM1~         |DM1~         |x5x0                           |1
+DM1          |DM1          |~~DM2        |             |x6x0                           |1
+DM1~         |DM1~         |~~DM2        |             |x7x0                           |1
 DM1          |DM1~         |Z.f          |Z.f          |x8x0                           |1
 ~~DM2        |~~DM2        |Z.f          |Z.f          |x9x0                           |1
 DM1          |DM1~         |W+.f         |W-.f         |x10x0                          |1

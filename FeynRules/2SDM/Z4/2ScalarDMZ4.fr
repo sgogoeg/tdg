@@ -31,36 +31,60 @@ M$Parameters = {
 
 (* Coefficients for new operators*)
 
-  DMac1 == {
+  MDM1 == {
     ParameterType -> External,
+    BlockName     -> Dark,
     OrderBlock    -> 1,
     Value         -> 0,
     InteractionOrder -> {QED,2},
-    TeX           -> Subscript[D\[Mu],1],
-    Description      -> "Coupling of DM particle 1"
+    TeX              -> Subscript[MDM, 1],
+    Description      -> "Mass of DM particle 1"
+  },
+
+  MDM1Re == {
+    ParameterType -> External,
+    BlockName     -> Dark,
+    OrderBlock    -> 2,
+    Value         -> 0,
+    InteractionOrder -> {QED,2},
+    TeX              -> Subscript[MDMRe, 1],
+    Description      -> "Mass of DM particle 1"
+  },
+
+  MDM1Im == {
+    ParameterType -> External,
+    BlockName     -> Dark,
+    OrderBlock    -> 3,
+    Value         -> 0,
+    InteractionOrder -> {QED,2},
+    TeX              -> Subscript[MDMIm, 1],
+    Description      -> "Mass of DM particle 1"
   },
   
   DMlamb41 == {
     ParameterType -> External,
-    OrderBlock    -> 2,
+    BlockName     -> Dark,
+    OrderBlock    -> 4,
     Value         -> 0,
     InteractionOrder -> {QED,2},
     TeX           -> Subscript[D\[Lambda],41],
     Description      -> "Coupling of DM particle 1"
   },
   
-   DMac2 == {
+   MDM2 == {
     ParameterType -> External,
-    OrderBlock    -> 3,
+    BlockName     -> Dark,
+    OrderBlock    -> 5,
     Value         -> 0,
     InteractionOrder -> {QED,2},
-    TeX           -> Subscript[D\[Mu],2],
-    Description      -> "Coupling of DM particle 2"
+    TeX              -> Subscript[MDM, 2],
+    Description      -> "Mass of DM particle 2"
   },
   
   DMlamb42 == {
     ParameterType -> External,
-    OrderBlock    -> 4,
+    BlockName     -> Dark,
+    OrderBlock    -> 6,
     Value         -> 0,
     InteractionOrder -> {QED,2},
     TeX           -> Subscript[D\[Lambda],42],
@@ -69,7 +93,8 @@ M$Parameters = {
   
   DMlamb412 == {
     ParameterType -> External,
-    OrderBlock    -> 5,
+    BlockName     -> Dark,
+    OrderBlock    -> 7,
     Value         -> 0,
     InteractionOrder -> {QED,2},
     TeX           -> Subscript[D\[Lambda],412],
@@ -78,7 +103,8 @@ M$Parameters = {
   
   DMlambS1 == {
     ParameterType -> External,
-    OrderBlock    -> 6,
+    BlockName     -> Dark,
+    OrderBlock    -> 8,
     Value         -> 0,
     InteractionOrder -> {QED,2},
     TeX           -> Subscript[D\[Lambda],S1],
@@ -87,16 +113,18 @@ M$Parameters = {
   
   DMlambS2 == {
     ParameterType -> External,
-    OrderBlock    -> 7,
+    BlockName     -> Dark,
+    OrderBlock    -> 9,
     Value         -> 0,
     InteractionOrder -> {QED,2},
     TeX           -> Subscript[D\[Lambda],S2],
     Description      -> "Coupling of DM particle 2"
   },
   
-  DMacS1 == {
+  DMmuS1 == {
     ParameterType -> External,
-    OrderBlock    -> 8,
+    BlockName     -> Dark,
+    OrderBlock    -> 10,
     Value         -> 0,
     InteractionOrder -> {QED,2},
     TeX           -> Subscript[D\[Mu],S1],
@@ -105,7 +133,8 @@ M$Parameters = {
   
   DMlamb51 == {
     ParameterType -> External,
-    OrderBlock    -> 9,
+    BlockName     -> Dark,
+    OrderBlock    -> 11,
     Value         -> 0,
     InteractionOrder -> {QED,2},
     TeX           -> Subscript[D\[Lambda],51],
@@ -114,18 +143,19 @@ M$Parameters = {
   
   (* Internal Parameters *)
     
-  MDM1 == {
+  DMmu1SQRT == {
     ParameterType    -> Internal,
-    Value            -> DMac1^2 + 1/2 DMlambS1 vev^2,
-    TeX              -> Subscript[MDM, 1],
-    Description      -> "Mass of DM particle 1"
+    Value            -> MDM1^2 - 1/2 DMlambS1 vev^2,
+    TeX           -> Subscript[D\[Mu],1],
+    Description      -> "Coupling of DM particle 1"
+    
   },
   
-  MDM2 == {
+  DMmu2SQRT == {
     ParameterType    -> Internal,
-    Value            -> DMac2^2 + 1/2 DMlambS2 vev^2,
-    TeX              -> Subscript[MDM, 2],
-    Description      -> "Mass of DM particle 2"
+    Value            -> MDM2^2 - 1/2 DMlambS2 vev^2,
+    TeX           -> Subscript[D\[Mu],2],
+    Description      -> "Coupling of DM particle 2"
   }
   
 };
@@ -142,7 +172,7 @@ M$ClassesDescription = {
   S[4] == {
     ClassName       -> DM1Re,
     SelfConjugate   -> True,
-    Mass            -> {1,Internal},
+    Mass            -> {MDM1Re,0},
     Width           -> {WDM1,0},
     PropagatorLabel -> "DM1Re",
     PDG             -> 300,
@@ -153,7 +183,7 @@ M$ClassesDescription = {
   S[5] == {
     ClassName       -> DM1Im,
     SelfConjugate   -> True,
-    Mass            -> {1,Internal},
+    Mass            -> {MDM1Im,0},
     Width           -> {WDM1,0},
     PropagatorLabel -> "DM1Im",
     PDG             -> 301,
@@ -164,8 +194,7 @@ M$ClassesDescription = {
   S[6] == {
     ClassName       -> DM1,
     SelfConjugate   -> False,
-    Indices          -> {},
-    Mass            -> {MDM1,Internal},
+    Mass            -> {MDM1,0},
     Width           -> {WDM1,0},
     PropagatorLabel -> "DM1",
     PDG             -> 302,
@@ -177,7 +206,7 @@ M$ClassesDescription = {
   S[7] == {
     ClassName       -> DM2,
     SelfConjugate   -> True,
-    Mass            -> {MDM2,Internal},
+    Mass            -> {MDM2,0},
     Width           -> {WDM2,0},
     PropagatorLabel -> "DM2",
     PDG             -> 303,
@@ -199,13 +228,13 @@ M$ClassesDescription = {
 
 V1 := Block[{ii, feynmangaugerules},
   feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
-  ExpandIndices[DMac1 DMac1 HC[DM1] DM1 + DMlamb41 HC[DM1] DM1 HC[DM1] DM1 + 1/2 DMac2 DMac2 DM2 DM2 + DMlamb42 DM2 DM2 DM2 DM2 + DMlamb412 HC[DM1] DM1 DM2 DM2 + DMlambS1 HC[DM1] DM1 Phibar[ii] Phi[ii] + 1/2 DMlambS2 DM2 DM2 Phibar[ii] Phi[ii]]/.feynmangaugerules];
+  DMmu1SQRT HC[DM1] DM1 + DMlamb41 HC[DM1] DM1 HC[DM1] DM1 + 1/2 DMmu2SQRT DM2 DM2 + DMlamb42 DM2 DM2 DM2 DM2 + DMlamb412 HC[DM1] DM1 DM2 DM2 + DMlambS1 HC[DM1] DM1 Phibar[ii] Phi[ii] + 1/2 DMlambS2 DM2 DM2 Phibar[ii] Phi[ii]/.feynmangaugerules];
 
 (* V2 *)
 
 V2 := Block[{feynmangaugerules},
 	feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
-  1/2 DMacS1 DM1 DM1 DM2 + 1/2 DMlamb51 DM1 DM1 DM1 DM1 + HC[1/2 DMacS1 DM1 DM1 DM2] + HC[1/2 DMlamb51 DM1 DM1 DM1 DM1] /.feynmangaugerules];
+  1/2 DMmuS1 DM1 DM1 DM2 + 1/2 DMlamb51 DM1 DM1 DM1 DM1 + HC[1/2 DMmuS1 DM1 DM1 DM2] + HC[1/2 DMlamb51 DM1 DM1 DM1 DM1] /.feynmangaugerules];
 
 (* Complete Lagrangian *)
 

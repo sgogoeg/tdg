@@ -1,18 +1,64 @@
 import numpy as np
 
+# Primero el caso de masa 2 menor a masa 1
+
+param8 = 'DMmuS1'
+
+# siempre es cero
+
+lamb51 = 0
+
+lamb41 = 0
+
+lamb42 = 0
+
+# Parametros generales
+
 num_samples = 100
+base = 10
 
-startcoup = -8
-stopcoup =  -5
-basecoup = 10 
+# Masa campo 1
 
-couplings = np.logspace(startcoup, stopcoup, num_samples, base=basecoup)
+startM1 = 1
+stopM1 =  4
 
-startmass = 0
-stopmass =  3
-basemass = 10 
+M1 = np.logspace(startM1, stopM1, num_samples, base=base)
 
-masses = np.logspace(startmass, stopmass, num_samples, base=basemass)
+# Masa campo 2 (Depende de la masa del campo 1)
+
+# La condicion masa 2 < 2 masa 1 se alcanza al subir el order en 1 y buscando hasta el doble
+
+M2 = np.logspace(startM1, stopM1+1, num_samples, base=base)
+
+# LambdaS1
+
+startlambS1 = -4
+stoplambS1 =  0
+
+lambS1 = np.logspace(startlambS1, stoplambS1, num_samples, base=base)
+
+# LambdaS2
+
+startlambS2 = -4
+stoplambS2 =  0
+
+lambS2 = np.logspace(startlambS2, stoplambS2, num_samples, base=base)
+
+# Lambda412
+
+startlamb412 = -4
+stoplamb412 =  0
+
+lamb412 = np.logspace(startlamb412, stoplamb412, num_samples, base=base)
+
+# muS1
+
+startmuS1 = 2
+stopmuS1 =  4
+
+muS1 = np.logspace(startmuS1, stopmuS1, num_samples, base=base)
+
+
 
 input = []
 
@@ -26,4 +72,4 @@ for i in masses:
 input = np.vstack(input)
 
 # Save to CSV
-np.savetxt("input_B.csv", input, delimiter=",")
+np.savetxt("input_Z4.csv", input, delimiter=",")
