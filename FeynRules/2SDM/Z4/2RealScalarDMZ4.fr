@@ -32,47 +32,26 @@ M$ClassesDescription = {
 
 (* Not sure about dafault values *)
 
-  S[4] == {
-    ClassName       -> DM1,
-    SelfConjugate   -> False,
-    Mass            -> {MDM1,1},
-    Width           -> 0,
-    PropagatorLabel -> "DM1",
-    PDG             -> 300,
-    ParticleName    ->"DM1",
-    Definitions    -> { DM1 -> DM1Re + I DM1Im},
-    FullName        -> "Scalar Complex Dark Matter"
-  },
-
-   S[5] == {
-    ClassName       -> DM1Re,
-    SelfConjugate   -> True,
-    Mass            -> {MDM1Re,1},
-    PropagatorLabel -> "DM1Re",
-    PDG             -> 301,
-    ParticleName    ->"~DM1Re",
-    FullName        -> "Scalar Complex Dark Matter Real Part"
-  },
-
   S[6] == {
-    ClassName       -> DM1Im,
+    ClassName       -> DM1,
     SelfConjugate   -> True,
-    Mass            -> {MDM1Im,1},
-    PropagatorLabel -> "DM1Im",
+    Mass            -> {MDM1,1},
+    Width           -> {WDM1,0},
+    PropagatorLabel -> "DM1",
     PDG             -> 302,
-    ParticleName    ->"~DM1Im",
-    FullName        -> "Scalar Complex Dark Matter Complex Part"
+    ParticleName    ->"~DM1",
+    FullName        -> "Scalar Real Dark Matter 1"
   },
   
   S[7] == {
     ClassName       -> DM2,
     SelfConjugate   -> True,
     Mass            -> {MDM2,1},
-    Width           -> 0,
+    Width           -> {WDM2,0},
     PropagatorLabel -> "DM2",
     PDG             -> 303,
     ParticleName    -> "~~DM2",
-    FullName        -> "Scalar Real Dark Matter"
+    FullName        -> "Scalar Real Dark Matter 2"
   }
 
   
@@ -188,16 +167,8 @@ M$Parameters = {
 
 V1 := Block[{ii, feynmangaugerules},
   feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
-  DMmu1SQRT DM1bar DM1 + DMlamb41 DM1bar DM1 DM1bar DM1 + 1/2 DMmu2SQRT DM2 DM2 + DMlamb42 DM2 DM2 DM2 DM2 
-  + DMlamb412 DM1bar DM1 DM2 DM2 + DMlambS1 Phibar[ii] Phi[ii] DM1bar DM1 + 1/2 DMlambS2 Phibar[ii] Phi[ii] DM2 DM2 /.feynmangaugerules];
-
-(* V2 *)
-
-V2 := Block[{feynmangaugerules},
-	feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
-  1/2 DMmuS1 DM1 DM1 DM2 + 1/2 DMlamb51 DM1 DM1 DM1 DM1 + HC[1/2 DMmuS1 DM1 DM1 DM2] 
-  + HC[1/2 DMlamb51 DM1 DM1 DM1 DM1] /.feynmangaugerules];
+  1/2 DMmu1SQRT DM1 DM1 + DMlamb41 DM1 DM1 DM1 DM1 + 1/2 DMlambS1 DM1 DM1 Phibar[ii] Phi[ii] + 1/2 DMmu2SQRT DM2 DM2 + DMlamb42 DM2 DM2 DM2 DM2+ 1/2 DMlambS2 DM2 DM2 Phibar[ii] Phi[ii]/.feynmangaugerules];
 
 (* Complete Lagrangian *)
 
-L2SDMZ4:= LSM + V1 + V2;
+L2SDMZ4:= LSM + V1;

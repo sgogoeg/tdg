@@ -32,45 +32,25 @@ M$ClassesDescription = {
 
 (* Not sure about dafault values *)
 
+
   S[4] == {
     ClassName       -> DM1,
     SelfConjugate   -> False,
     Mass            -> {MDM1,1},
     Width           -> 0,
     PropagatorLabel -> "DM1",
-    PDG             -> 300,
-    ParticleName    ->"DM1",
-    Definitions    -> { DM1 -> DM1Re + I DM1Im},
+    PDG             -> 301,
+    ParticleName    ->"~DM1",
     FullName        -> "Scalar Complex Dark Matter"
   },
-
-   S[5] == {
-    ClassName       -> DM1Re,
-    SelfConjugate   -> True,
-    Mass            -> {MDM1Re,1},
-    PropagatorLabel -> "DM1Re",
-    PDG             -> 301,
-    ParticleName    ->"~DM1Re",
-    FullName        -> "Scalar Complex Dark Matter Real Part"
-  },
-
-  S[6] == {
-    ClassName       -> DM1Im,
-    SelfConjugate   -> True,
-    Mass            -> {MDM1Im,1},
-    PropagatorLabel -> "DM1Im",
-    PDG             -> 302,
-    ParticleName    ->"~DM1Im",
-    FullName        -> "Scalar Complex Dark Matter Complex Part"
-  },
   
-  S[7] == {
+  S[5] == {
     ClassName       -> DM2,
     SelfConjugate   -> True,
     Mass            -> {MDM2,1},
     Width           -> 0,
     PropagatorLabel -> "DM2",
-    PDG             -> 303,
+    PDG             -> 302,
     ParticleName    -> "~~DM2",
     FullName        -> "Scalar Real Dark Matter"
   }

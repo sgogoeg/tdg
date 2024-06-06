@@ -2,11 +2,7 @@
  Parameters
   Name         | Value       |> Comment                                                                <|
 cabi           |0.227736     |Cabibbo angle                                                             |
-MDM1           |0            |Mass of DM particle 1                                                     |
-MDM1Re         |0            |Mass of DM particle 1                                                     |
-MDM1Im         |0            |Mass of DM particle 1                                                     |
 DMlamb41       |0            |Coupling of DM particle 1                                                 |
-MDM2           |0            |Mass of DM particle 2                                                     |
 DMlamb42       |0            |Coupling of DM particle 2                                                 |
 DMlamb412      |0            |Coupling of DM particles 1 and 2                                          |
 DMlambS1       |0            |Coupling of DM particle 1                                                 |
@@ -25,9 +21,15 @@ MTA            |1.777        |Mass of ta.                                       
 MT             |172          |Mass of t.                                                                |
 MB             |4.7          |Mass of b.                                                                |
 MH             |125          |Mass of H.                                                                |
+MDM1           |1            |Mass of DM1.                                                              |
+MDM1Re         |1            |Mass of DM1Re.                                                            |
+MDM1Im         |1            |Mass of DM1Im.                                                            |
+MDM2           |1            |Mass of DM2.                                                              |
 %WZ            |2.4952       |Width of G0.                                                              |
 %WW            |2.085        |Width of GP.                                                              |
 %WT            |1.50833649   |Width of t.                                                               |
 %WH            |0.00407      |Width of H.                                                               |
+%WDM1Re        |0            |Width of DM1Re.                                                           |
+%WDM1Im        |0            |Width of DM1Im.                                                           |
 E              |2.71828182845|The base of the natural logarithm.                                        |
 Pi             |3.14159265358|The circumference of a circle divided by the diameter.                    |
