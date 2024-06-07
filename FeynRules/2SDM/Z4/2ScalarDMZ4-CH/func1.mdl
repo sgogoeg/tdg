@@ -22,9 +22,9 @@
 %MT            |if(slhaFound,if(slhaValExists("MASS",1,6),slhaVal("MASS",0,1,6),MTDef),MTDef)                                  %Mass of t.                                        
 %MB            |if(slhaFound,if(slhaValExists("MASS",1,5),slhaVal("MASS",0,1,5),MBDef),MBDef)                                  %Mass of b.                                        
 %MH            |if(slhaFound,if(slhaValExists("MASS",1,25),slhaVal("MASS",0,1,25),MHDef),MHDef)                                %Mass of H.                                        
-%MDM1          |if(slhaFound,if(slhaValExists("MASS",1,300),slhaVal("MASS",0,1,300),MDM1Def),MDM1Def)                          %Mass of DM1.                                      
-%MDM1Re        |if(slhaFound,if(slhaValExists("MASS",1,301),slhaVal("MASS",0,1,301),MDM1ReDef),MDM1ReDef)                      %Mass of DM1Re.                                    
-%MDM1Im        |if(slhaFound,if(slhaValExists("MASS",1,302),slhaVal("MASS",0,1,302),MDM1ImDef),MDM1ImDef)                      %Mass of DM1Im.                                    
+%MDM1          |if(slhaFound,if(slhaValExists("MASS",1,300),slhaVal("MASS",0,1,300),MDM1Def),MDM1Def)                          %Mass of DM1Im.                                    
+%MDM1          |if(slhaFound,if(slhaValExists("MASS",1,301),slhaVal("MASS",0,1,301),MDM1Def),MDM1Def)                          %Mass of DM1Im.                                    
+%MDM1          |if(slhaFound,if(slhaValExists("MASS",1,302),slhaVal("MASS",0,1,302),MDM1Def),MDM1Def)                          %Mass of DM1Im.                                    
 %MDM2          |if(slhaFound,if(slhaValExists("MASS",1,303),slhaVal("MASS",0,1,303),MDM2Def),MDM2Def)                          %Mass of DM2.                                      
 %WZ            |if(slhaFound,if(1+slhaDecayExists(23),slhaWidth(23),WZDef),WZDef)                                              %Width of G0.                                      
 %WW            |if(slhaFound,if(1+slhaDecayExists(24),slhaWidth(24),WWDef),WWDef)                                              %Width of GP.                                      

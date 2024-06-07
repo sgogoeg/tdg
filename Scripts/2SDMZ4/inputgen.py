@@ -14,7 +14,7 @@ lamb42 = 0
 
 # Parametros generales
 
-num_samples = 100
+num_samples = 10
 base = 10
 
 # Masa campo 1
@@ -58,18 +58,25 @@ stopmuS1 =  4
 
 muS1 = np.logspace(startmuS1, stopmuS1, num_samples, base=base)
 
-
-
 input = []
 
-for i in masses:
+# Iterate over each parameter array
+for m1 in M1:
+    for m2 in M2:
+        if m2 > m1: break
+        for ls1 in lambS1:
+            for ls2 in lambS2:
+                for l412 in lamb412:
+                    for mu in muS1:
+                        # Create a temporary array for the current combination of parameters
+                        input_temp = np.array([m1, lamb41, m2, lamb42, l412, ls1, ls2, mu, lamb51])
+                        
+                        # Append the temporary array to the input list
+                        input.append(input_temp)
 
-    mass = i*np.ones(couplings.shape)
-    inputtemp = np.column_stack((mass, couplings))
-
-    input.append(inputtemp)
-
+# Convert the list of arrays into a single NumPy array
 input = np.vstack(input)
+
 
 # Save to CSV
 np.savetxt("input_Z4.csv", input, delimiter=",")

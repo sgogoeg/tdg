@@ -47,7 +47,7 @@ M$ClassesDescription = {
    S[5] == {
     ClassName       -> DM1Re,
     SelfConjugate   -> True,
-    Mass            -> {MDM1Re,1},
+    Mass            -> {MDM1,1},
     PropagatorLabel -> "DM1Re",
     PDG             -> 301,
     ParticleName    ->"~DM1Re",
@@ -57,7 +57,7 @@ M$ClassesDescription = {
   S[6] == {
     ClassName       -> DM1Im,
     SelfConjugate   -> True,
-    Mass            -> {MDM1Im,1},
+    Mass            -> {MDM1,1},
     PropagatorLabel -> "DM1Im",
     PDG             -> 302,
     ParticleName    ->"~DM1Im",

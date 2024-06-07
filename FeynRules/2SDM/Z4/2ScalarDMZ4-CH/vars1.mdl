@@ -21,9 +21,7 @@ MTA            |1.777        |Mass of ta.                                       
 MT             |172          |Mass of t.                                                                |
 MB             |4.7          |Mass of b.                                                                |
 MH             |125          |Mass of H.                                                                |
-MDM1           |1            |Mass of DM1.                                                              |
-MDM1Re         |1            |Mass of DM1Re.                                                            |
-MDM1Im         |1            |Mass of DM1Im.                                                            |
+MDM1           |1            |Mass of DM1Im.                                                            |
 MDM2           |1            |Mass of DM2.                                                              |
 %WZ            |2.4952       |Width of G0.                                                              |
 %WW            |2.085        |Width of GP.                                                              |

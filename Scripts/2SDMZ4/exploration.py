@@ -25,10 +25,6 @@ with open('/home/sgogoeg/heptools/micromegas_6.0/Z42SDM/data.par', 'w') as tempf
 with open('input_Z4.csv', 'r') as csvfile:
     
     # Escribiendo los nombres de las variables en el CSV
-
-    writer = csv.writer(csvfile)
-
-    writer.writerow([param1, param2, param3, param4, param5, param6, param7, param8, param9, "omega1", "omega2", "omegaFI"])
     
     reader = csv.reader(csvfile)
 
@@ -51,17 +47,16 @@ with open('input_Z4.csv', 'r') as csvfile:
             writer = csv.writer(csvfile)
             # Buscando los valores en cada linea
             for line in result.stdout.split('\n'):
-                if "Omega1 (N)=" in line:
-                    omega_value_1 = line.split("Omega1 (N)=")[1] 
-
-                if "Omega2 (N)=" in line:
-                    omega_value_2 = line.split("Omega2 (N)=")[1] 
-        
-                if "Omega_FI=" in line:
-                    omega_value_FI = line.split("Omega_FI=")[1] 
-                    writer.writerow([row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], omega_value_1, omega_value_2, omega_value_FI])
-                    break
+                parts = line.split()  # Splitting the line by spaces
+                for part in parts:
+                    if "Omega_1h^2=" in part:
+                        omega_value_1 = part.split("Omega_1h^2=")[1]
+                    elif "Omega_2h^2=" in part:
+                        omega_value_2 = part.split("Omega_2h^2=")[1]
+            if omega_value_1 and omega_value_2:
+                omega_value_FI = float(omega_value_1) + float(omega_value_2)
+                writer.writerow([row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], omega_value_1, omega_value_2, omega_value_FI])
                 
                 # Si no encuentra nada debe escribir algo
-
-                writer.writerow([row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], omega_value_1, omega_value_2, omega_value_FI])
+            else:
+                writer.writerow([row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], 0, 0, 0])
