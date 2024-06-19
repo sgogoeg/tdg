@@ -22,9 +22,7 @@
 %MT            |if(slhaFound,if(slhaValExists("MASS",1,6),slhaVal("MASS",0,1,6),MTDef),MTDef)                                  %Mass of t.                                        
 %MB            |if(slhaFound,if(slhaValExists("MASS",1,5),slhaVal("MASS",0,1,5),MBDef),MBDef)                                  %Mass of b.                                        
 %MH            |if(slhaFound,if(slhaValExists("MASS",1,25),slhaVal("MASS",0,1,25),MHDef),MHDef)                                %Mass of H.                                        
-%MDM1          |if(slhaFound,if(slhaValExists("MASS",1,300),slhaVal("MASS",0,1,300),MDM1Def),MDM1Def)                          %Mass of DM1Im.                                    
-%MDM1          |if(slhaFound,if(slhaValExists("MASS",1,301),slhaVal("MASS",0,1,301),MDM1Def),MDM1Def)                          %Mass of DM1Im.                                    
-%MDM1          |if(slhaFound,if(slhaValExists("MASS",1,302),slhaVal("MASS",0,1,302),MDM1Def),MDM1Def)                          %Mass of DM1Im.                                    
+%MDM1          |if(slhaFound,if(slhaValExists("MASS",1,300),slhaVal("MASS",0,1,300),MDM1Def),MDM1Def)                          %Mass of DM1.                                      
 %MDM2          |if(slhaFound,if(slhaValExists("MASS",1,303),slhaVal("MASS",0,1,303),MDM2Def),MDM2Def)                          %Mass of DM2.                                      
 %WZ            |if(slhaFound,if(1+slhaDecayExists(23),slhaWidth(23),WZDef),WZDef)                                              %Width of G0.                                      
 %WW            |if(slhaFound,if(1+slhaDecayExists(24),slhaWidth(24),WWDef),WWDef)                                              %Width of GP.                                      
@@ -36,6 +34,7 @@ CKM1x1         |cos(cabi)                                                       
 CKM1x2         |sin(cabi)                                                                                                      % CKM-Matrix ( CKM1x2 )                             
 CKM2x1         |-sin(cabi)                                                                                                     % CKM-Matrix ( CKM2x1 )                             
 CKM2x2         |cos(cabi)                                                                                                      % CKM-Matrix ( CKM2x2 )                             
+MDM1Part       |MDM1/2.                                                                                                        % Mass of real or imaginary parts                   
 aEW            |pow(aEWM1,-1)                                                                                                  % Electroweak coupling contant                      
 MW             |pow(pow(MZ,2)/2.+pow(-(aEW*Pi*pow(2,-0.5)*pow(Gf,-1)*pow(MZ,2))+pow(MZ,4)/4.,0.5),0.5)                         % W mass                                            
 EE             |2*pow(aEW,0.5)*pow(Pi,0.5)                                                                                     % Electric coupling constant                        
@@ -56,22 +55,22 @@ I1a33          |yb                                                              
 I2a33          |yt                                                                                                             % Abbreviation used in optimizatized FeynRules outpu
 I3a33          |yt                                                                                                             % Abbreviation used in optimizatized FeynRules outpu
 I4a33          |yb                                                                                                             % Abbreviation used in optimizatized FeynRules outpu
-x1x0           |24*(DMlamb41+DMlamb51)                                                                                         % ~DM1I~DM1I~DM1I~DM1I coupling.
-x2x0           |8*(DMlamb41-3*DMlamb51)                                                                                        % ~DM1I~DM1I~DM1R~DM1R coupling.
-x3x0           |24*(DMlamb41+DMlamb51)                                                                                         % ~DM1R~DM1R~DM1R~DM1R coupling.
-x4x0           |4*DMlamb412                                                                                                    % ~DM1I~DM1I~~DM2~~DM2 coupling.
-x5x0           |4*DMlamb412                                                                                                    % ~DM1R~DM1R~~DM2~~DM2 coupling.
+x1x0           |6*(DMlamb41+DMlamb51)                                                                                          % ~DM1I~DM1I~DM1I~DM1I coupling.
+x2x0           |2*(DMlamb41-3*DMlamb51)                                                                                        % ~DM1I~DM1I~DM1R~DM1R coupling.
+x3x0           |6*(DMlamb41+DMlamb51)                                                                                          % ~DM1R~DM1R~DM1R~DM1R coupling.
+x4x0           |2*DMlamb412                                                                                                    % ~DM1I~DM1I~~DM2~~DM2 coupling.
+x5x0           |2*DMlamb412                                                                                                    % ~DM1R~DM1R~~DM2~~DM2 coupling.
 x6x0           |24*DMlamb42                                                                                                    % ~~DM2~~DM2~~DM2~~DM2 coupling.
-x7x0           |-2*DMmuS1                                                                                                      % ~DM1I~DM1I~~DM2 coupling.
-x8x0           |2*DMmuS1                                                                                                       % ~DM1R~DM1R~~DM2 coupling.
-x9x0           |2*DMlambS1                                                                                                     % ~DM1I~DM1IZ.f  Z.f   coupling.
-x10x0          |2*DMlambS1                                                                                                     % ~DM1R~DM1RZ.f  Z.f   coupling.
+x7x0           |-DMmuS1                                                                                                        % ~DM1I~DM1I~~DM2 coupling.
+x8x0           |DMmuS1                                                                                                         % ~DM1R~DM1R~~DM2 coupling.
+x9x0           |DMlambS1                                                                                                       % ~DM1I~DM1IZ.f  Z.f   coupling.
+x10x0          |DMlambS1                                                                                                       % ~DM1R~DM1RZ.f  Z.f   coupling.
 x11x0          |DMlambS2                                                                                                       % ~~DM2~~DM2Z.f  Z.f   coupling.
-x12x0          |2*DMlambS1                                                                                                     % ~DM1I~DM1IW+.f W-.f  coupling.
-x13x0          |2*DMlambS1                                                                                                     % ~DM1R~DM1RW+.f W-.f  coupling.
+x12x0          |DMlambS1                                                                                                       % ~DM1I~DM1IW+.f W-.f  coupling.
+x13x0          |DMlambS1                                                                                                       % ~DM1R~DM1RW+.f W-.f  coupling.
 x14x0          |DMlambS2                                                                                                       % ~~DM2~~DM2W+.f W-.f  coupling.
-x15x0          |2*DMlambS1                                                                                                     % ~DM1I~DM1IH    H     coupling.
-x16x0          |2*DMlambS1                                                                                                     % ~DM1R~DM1RH    H     coupling.
+x15x0          |DMlambS1                                                                                                       % ~DM1I~DM1IH    H     coupling.
+x16x0          |DMlambS1                                                                                                       % ~DM1R~DM1RH    H     coupling.
 x17x0          |DMlambS2                                                                                                       % ~~DM2~~DM2H    H     coupling.
 x18x0          |-6*lam                                                                                                         % Z.f  Z.f  Z.f  Z.f   coupling.
 x19x0          |-2*lam                                                                                                         % Z.f  Z.f  W+.f W-.f  coupling.
@@ -79,8 +78,8 @@ x20x0          |-4*lam                                                          
 x21x0          |-2*lam                                                                                                         % Z.f  Z.f  H    H     coupling.
 x22x0          |-2*lam                                                                                                         % W+.f W-.f H    H     coupling.
 x23x0          |-6*lam                                                                                                         % H    H    H    H     coupling.
-x24x0          |2*DMlambS1*vev                                                                                                 % ~DM1I~DM1IH     coupling.
-x25x0          |2*DMlambS1*vev                                                                                                 % ~DM1R~DM1RH     coupling.
+x24x0          |DMlambS1*vev                                                                                                   % ~DM1I~DM1IH     coupling.
+x25x0          |DMlambS1*vev                                                                                                   % ~DM1R~DM1RH     coupling.
 x26x0          |DMlambS2*vev                                                                                                   % ~~DM2~~DM2H     coupling.
 x27x0          |-2*lam*vev                                                                                                     % Z.f  Z.f  H     coupling.
 x28x0          |-2*lam*vev                                                                                                     % W+.f W-.f H     coupling.

@@ -40,14 +40,14 @@ M$ClassesDescription = {
     PropagatorLabel -> "DM1",
     PDG             -> 300,
     ParticleName    ->"DM1",
-    Definitions    -> { DM1 -> DM1Re + I DM1Im},
+    Definitions    -> { DM1 -> (DM1Re + I DM1Im)/Sqrt[2]},
     FullName        -> "Scalar Complex Dark Matter"
   },
 
    S[5] == {
     ClassName       -> DM1Re,
     SelfConjugate   -> True,
-    Mass            -> {MDM1,1},
+    Mass            -> {MDM1Part, Internal},
     PropagatorLabel -> "DM1Re",
     PDG             -> 301,
     ParticleName    ->"~DM1Re",
@@ -57,7 +57,7 @@ M$ClassesDescription = {
   S[6] == {
     ClassName       -> DM1Im,
     SelfConjugate   -> True,
-    Mass            -> {MDM1,1},
+    Mass            -> {MDM1Part, Internal},
     PropagatorLabel -> "DM1Im",
     PDG             -> 302,
     ParticleName    ->"~DM1Im",
@@ -171,6 +171,13 @@ M$Parameters = {
     Value            -> MDM2^2 - 1/2 DMlambS2 vev^2,
     TeX           -> Subscript[D\[Mu],2],
     Description      -> "Coupling of DM particle 2"
+  },
+
+  MDM1Part == {
+    ParameterType    -> Internal,
+    Value            -> 1/2 * MDM1,
+    TeX              -> Subscript[M,part],
+    Description      -> "Mass of real or imaginary parts"
   }
   
 };
