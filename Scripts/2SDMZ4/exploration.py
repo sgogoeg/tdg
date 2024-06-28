@@ -1,8 +1,14 @@
+'''
+El script toma un archivo csv como input para correr micromegas con los parámetros especificados.
+
+La dirección y el nombre del modelo de micromegas es sensible a las diferentes maquinas.
+'''
+
 import csv
 import subprocess
 import numpy as np
 
-# Para definir los parametros a manipular
+# Para definir los parametros a manipular, debe corresponder con los nombres y el orden de los parámetros en el modelo entregado a micrOmegas
 param1 = 'MDM1'
 param2 = 'DMlamb41'
 param3 = 'MDM2'
@@ -40,22 +46,22 @@ with open('input_Z4.csv', 'r') as csvfile:
         # Variable para almacenar la densidad de reliquia
         omega_value_1 = None
         omega_value_2 = None
-        omega_value_FI = None
+        omega_value_Tot = None
 
         # Abriendo el output
         with open('output_Z4.csv', 'a', newline='') as csvfile:
             writer = csv.writer(csvfile)
             # Buscando los valores en cada linea
             for line in result.stdout.split('\n'):
-                parts = line.split()  # Splitting the line by spaces
+                parts = line.split()  # Separando por espacios
                 for part in parts:
                     if "Omega_1h^2=" in part:
                         omega_value_1 = part.split("Omega_1h^2=")[1]
                     elif "Omega_2h^2=" in part:
                         omega_value_2 = part.split("Omega_2h^2=")[1]
             if omega_value_1 and omega_value_2:
-                omega_value_FI = float(omega_value_1) + float(omega_value_2)
-                writer.writerow([row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], omega_value_1, omega_value_2, omega_value_FI])
+                omega_value_Tot = float(omega_value_1) + float(omega_value_2)
+                writer.writerow([row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], omega_value_1, omega_value_2, omega_value_Tot])
                 
                 # Si no encuentra nada debe escribir algo
             else:

@@ -1,5 +1,3 @@
-import numpy as np
-
 '''
 El script genera un archivo csv con puntos seleccionados al azar dentro de un espacio de parametros especificado
 
@@ -8,6 +6,8 @@ Se toma un espaciado logaritmico en el espacio de parametros
 Tratamos el caso de masa 2 menor a masa 1
 
 '''
+
+import numpy as np
 
 # Parametros que siempre son cero
 

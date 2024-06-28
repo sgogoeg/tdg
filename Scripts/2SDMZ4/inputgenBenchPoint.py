@@ -1,14 +1,19 @@
+'''
+El script genera un archivo csv con puntos de un benchmark point dentro de un espacio de parametros especificado.
+
+Seleccionamos un benchmark point de M2 = 10^3 y muS1 > 10^3.
+
+Se toma un espaciado logaritmico en el espacio de parametros.
+
+Tratamos el caso de masa 2 menor a masa 1.
+
+'''
+
 import numpy as np
-
-# Seleccionamos un benchmark point de M2 = 10^3 y muS1 > 10^3
-
-# Primero el caso de masa 2 menor a masa 1
-
-
 
 param8 = 'DMmuS1'
 
-# siempre es cero
+# Parametros que siempre son cero
 
 lamb51 = 0
 
@@ -16,7 +21,7 @@ lamb41 = 0
 
 lamb42 = 0
 
-# Parametros generales
+# Parametros generales del espaciado
 
 num_samples = 10
 base = 10
@@ -62,21 +67,17 @@ muS1 = np.logspace(startmuS1, stopmuS1, num_samples, base=base)
 
 input = []
 
-# Iterate over each parameter array
+# Iterando sobre los diferentes arreglos
 for m1 in M1:
     for ls1 in lambS1:
         for ls2 in lambS2:
             for l412 in lamb412:
                 for mu in muS1:
-                    # Create a temporary array for the current combination of parameters
                     input_temp = np.array([m1, lamb41, m2, lamb42, l412, ls1, ls2, mu, lamb51])
-                        
-                    # Append the temporary array to the input list
                     input.append(input_temp)
 
-# Convert the list of arrays into a single NumPy array
+# Convirtiendo en un unico arreglo de numpy
 input = np.vstack(input)
 
-
-# Save to CSV
+# Guardando a csv
 np.savetxt("input_Z4.csv", input, delimiter=",")

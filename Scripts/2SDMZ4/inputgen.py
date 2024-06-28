@@ -1,10 +1,15 @@
+'''
+El script genera un archivo csv con puntos seleccionados dentro de un espacio de parámetros especificado
+
+Se toma un espaciado logarítmico en el espacio de parámetros
+
+Tratamos el caso de masa 2 menor a masa 1
+
+'''
+
 import numpy as np
 
-# Primero el caso de masa 2 menor a masa 1
-
-param8 = 'DMmuS1'
-
-# siempre es cero
+# Parametros que siempre son cero
 
 lamb51 = 0
 
@@ -12,7 +17,7 @@ lamb41 = 0
 
 lamb42 = 0
 
-# Parametros generales
+# Parametros generales del espaciado
 
 num_samples = 10
 base = 10
