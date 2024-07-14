@@ -66,13 +66,23 @@ muS1 = np.logspace(startmuS1, stopmuS1, num_samples, base=base)
 
 input = []
 
+Mh = 125
+
+vev = 246
+
 i = 0
+
 while(i<iter):
     randinx = np.random.randint(0, num_samples, 6)
     paramtemp = np.array([M1[randinx[0]], lamb41, M2[randinx[1]], lamb42, lamb412[randinx[2]], lambS1[randinx[3]], lambS2[randinx[4]],
                      muS1[randinx[5]], lamb51])
+
+    Gamma1 = (paramtemp[0]<Mh) * 2 * paramtemp[5]**2 * vev**2 /(32*np.pi*Mh) * np.sqrt(1 - 4*paramtemp[0]**2/Mh**2 + 0j)
+
+    Gamma2 = (paramtemp[2]<Mh) * paramtemp[6]**2 * vev**2 /(32*np.pi*Mh) * np.sqrt(1 - 4*paramtemp[2]**2/Mh**2 + 0j)
+
     # Condiciones para acoples no imaginarios y herarquias de masas
-    if (paramtemp[0] > paramtemp[2]) and ((paramtemp[0]**2 - 1/2 * paramtemp[5] * 246**2) > 0) and ((paramtemp[2]**2 - 1/2 * paramtemp[6] * 246**2) > 0) and (paramtemp[2] < 2*paramtemp[0]):
+    if (paramtemp[0] > paramtemp[2]) and ((paramtemp[0]**2 - 1/2 * paramtemp[5] * 246**2) > 0) and ((paramtemp[2]**2 - 1/2 * paramtemp[6] * 246**2) > 0) and (paramtemp[2] < 2*paramtemp[0]) and (Gamma1 + Gamma2 <= 0.13):
         input.append(paramtemp)
         i += 1
 

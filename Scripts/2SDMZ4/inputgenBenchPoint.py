@@ -23,7 +23,7 @@ lamb42 = 0
 
 # Parametros generales del espaciado
 
-num_samples = 10
+num_samples = 7
 base = 10
 
 # Masa campo 1
