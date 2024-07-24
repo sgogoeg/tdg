@@ -1,0 +1,190 @@
+(***************************************************************************************************************)
+(******                     This is the FeynRules mod-file for a Scalar Dark Matter EFT                   ******)
+(****** Choose whether Feynman gauge is desired.                                                          ******)
+(****** If set to False, unitary gauge is assumed.                                                          ****)
+(****** Feynman gauge is especially useful for CalcHEP/CompHEP where the calculation is 10-100 times faster. ***)
+(****** Feynman gauge is not supported in MadGraph and Sherpa.                                              ****)
+(***************************************************************************************************************)
+
+(* ************************** *)
+(* *****  Information   ***** *)
+(* ************************** *)
+(* This is an add-on of SM model file, use it together with SM.fr *)
+M$ModelName = "2ScalarDMZ4";
+
+M$Information = {
+  Authors      -> {"S. Gonzalez"}, 
+  Version      -> "1",
+  Date         -> "21. 05. 2024",
+  Institutions -> {"University of Antioquia"},
+  Emails       -> {"simon.gonzalezg1@udea.edu.co"},
+  URLs         -> ""
+};
+
+FeynmanGauge = True;
+
+(* ************************** *)
+(* **** Particle classes **** *)
+(* ************************** *)
+M$ClassesDescription = {
+
+(* 2 extra particles: *)
+
+(* Not sure about dafault values *)
+
+  S[4] == {
+    ClassName       -> DM1,
+    SelfConjugate   -> False,
+    Mass            -> {MDM1,1},
+    Width           -> 0,
+    PropagatorLabel -> "DM1",
+    PDG             -> 301,
+    ParticleName    ->"~DM1",
+    AntiParticleName -> "~dm1",
+    FullName        -> "Scalar Complex Dark Matter"
+  },
+  
+  S[5] == {
+    ClassName       -> DM2,
+    SelfConjugate   -> True,
+    Mass            -> {MDM2,1},
+    Width           -> 0,
+    PropagatorLabel -> "DM2",
+    PDG             -> 302,
+    ParticleName    -> "~~DM2",
+    FullName        -> "Scalar Real Dark Matter"
+  }
+
+  
+};
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+M$Parameters = {
+(* External parameters *)
+
+(* Coefficients for new operators*)
+  
+  DMlamb41 == {
+    ParameterType -> External,
+    BlockName     -> Dark,
+    OrderBlock    -> 4,
+    Value         -> 0,
+    InteractionOrder -> {QED,2},
+    TeX           -> Subscript[D\[Lambda],41],
+    Description      -> "Coupling of DM particle 1"
+  },
+  
+  DMlamb42 == {
+    ParameterType -> External,
+    BlockName     -> Dark,
+    OrderBlock    -> 6,
+    Value         -> 0,
+    InteractionOrder -> {QED,2},
+    TeX           -> Subscript[D\[Lambda],42],
+    Description      -> "Coupling of DM particle 2"
+  },
+  
+  DMlamb412 == {
+    ParameterType -> External,
+    BlockName     -> Dark,
+    OrderBlock    -> 7,
+    Value         -> 0,
+    InteractionOrder -> {QED,2},
+    TeX           -> Subscript[D\[Lambda],412],
+    Description      -> "Coupling of DM particles 1 and 2"
+  },
+  
+  DMlambS1 == {
+    ParameterType -> External,
+    BlockName     -> Dark,
+    OrderBlock    -> 8,
+    Value         -> 0,
+    InteractionOrder -> {QED,2},
+    TeX           -> Subscript[D\[Lambda],S1],
+    Description      -> "Coupling of DM particle 1"
+  },
+  
+  DMlambS2 == {
+    ParameterType -> External,
+    BlockName     -> Dark,
+    OrderBlock    -> 9,
+    Value         -> 0,
+    InteractionOrder -> {QED,2},
+    TeX           -> Subscript[D\[Lambda],S2],
+    Description      -> "Coupling of DM particle 2"
+  },
+  
+  DMmuS1 == {
+    ParameterType -> External,
+    BlockName     -> Dark,
+    OrderBlock    -> 10,
+    Value         -> 0,
+    InteractionOrder -> {QED,2},
+    TeX           -> Subscript[D\[Mu],S1],
+    Description      -> "Coupling of DM particle 1"
+  },
+  
+  DMlamb51 == {
+    ParameterType -> External,
+    BlockName     -> Dark,
+    OrderBlock    -> 11,
+    Value         -> 0,
+    InteractionOrder -> {QED,2},
+    TeX           -> Subscript[D\[Lambda],51],
+    Description      -> "Coupling of DM particle 1"
+  },
+  
+  (* Internal Parameters *)
+    
+  DMmu1SQRT == {
+    ParameterType    -> Internal,
+    Value            -> MDM1^2 - 1/2 DMlambS1 vev^2,
+    TeX           -> Subscript[D\[Mu],1],
+    Description      -> "Coupling of DM particle 1"
+    
+  },
+  
+  DMmu2SQRT == {
+    ParameterType    -> Internal,
+    Value            -> MDM2^2 - 1/2 DMlambS2 vev^2,
+    TeX           -> Subscript[D\[Mu],2],
+    Description      -> "Coupling of DM particle 2"
+  },
+
+  MDM1Part == {
+    ParameterType    -> Internal,
+    Value            -> 1/2 * MDM1,
+    TeX              -> Subscript[M,part],
+    Description      -> "Mass of real or imaginary parts"
+  }
+  
+};
+
+
+  
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* Operators *)
+
+(* V1 *)
+
+V1 := Block[{ii, feynmangaugerules},
+  feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
+  DMmu1SQRT DM1bar DM1 + DMlamb41 DM1bar DM1 DM1bar DM1 + 1/2 DMmu2SQRT DM2 DM2 + DMlamb42 DM2 DM2 DM2 DM2 
+  + DMlamb412 DM1bar DM1 DM2 DM2 + DMlambS1 Phibar[ii] Phi[ii] DM1bar DM1 + 1/2 DMlambS2 Phibar[ii] Phi[ii] DM2 DM2 /.feynmangaugerules];
+
+(* V2 Effective *)
+
+V2 := Block[{feynmangaugerules},
+	feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
+  1/2 DMmuS1 DM1 DM1 DM1 DM1 DM2 + HC[1/2 DMmuS1 DM1 DM1 DM1 DM1 DM2] 
+   /.feynmangaugerules];
+
+(* Complete Lagrangian *)
+
+LZ814:= LSM + V1 + V2;
