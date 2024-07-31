@@ -3,7 +3,7 @@ El script genera un archivo csv con puntos seleccionados al azar dentro de un es
 
 Se toma un espaciado logaritmico en el espacio de parametros
 
-Tratamos el caso de masa 2 menor a masa 1
+Consideramos los casos de ambas masas?
 
 El Script toma como input el nombre del output y el numero de iteraciones (puntos)
 
@@ -96,7 +96,7 @@ while(i<iter):
 
     Gamma2 = (paramtemp[2]<Mh) * paramtemp[6]**2 * vev**2 /(32*np.pi*Mh) * np.sqrt(1 - 4*paramtemp[2]**2/Mh**2 + 0j)
 
-    # Condiciones para acoples no imaginarios y herarquias de masas
+    # Condiciones para acoples no imaginarios y herarquias de masas y deteccion indirecta
     if (paramtemp[0] > paramtemp[2]) and ((paramtemp[0]**2 - 1/2 * paramtemp[5] * 246**2) > 0) and ((paramtemp[2]**2 - 1/2 * paramtemp[6] * 246**2) > 0) and (paramtemp[2] < 2*paramtemp[0]) and (Gamma1 + Gamma2 <= 0.13):
         input.append(paramtemp)
         i += 1
