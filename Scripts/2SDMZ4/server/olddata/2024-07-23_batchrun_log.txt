@@ -1,0 +1,9 @@
+Start processing inputs/input_Z4_20240723_2.csv at 23/07/2024 21:58:26
+End processing inputs/input_Z4_20240723_2.csv at 23/07/2024 21:58:27: SUCCESS
+Deleted inputs/input_Z4_20240723_2.csv after successful processing.
+Start processing inputs/input_Z4_20240723_1.csv at 23/07/2024 21:58:27
+End processing inputs/input_Z4_20240723_1.csv at 23/07/2024 21:58:29: SUCCESS
+Deleted inputs/input_Z4_20240723_1.csv after successful processing.
+Start processing inputs/input_Z4_20240723_0.csv at 23/07/2024 21:58:29
+End processing inputs/input_Z4_20240723_0.csv at 23/07/2024 21:58:30: SUCCESS
+Deleted inputs/input_Z4_20240723_0.csv after successful processing.
