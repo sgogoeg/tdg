@@ -1,0 +1,13 @@
+total: 1.000.000
+Por proceso: 66.667
+Por input: 1000
+Numero de inputs: 67
+
+python3 parallel.py --end-number 14 --command "python3 bachgen.py --files 67 --iterations 1000"
+
+python3 parallel.py --end-number 14 --command "python3 batchrun.py --micromegas-path /home/AbacoGen01/Simon/heptools/micromegas_6.0"
+
+python3 parallel.py --end-number 14 --command "rm inputs/*"
+python3 parallel.py --end-number 14 --command "rm outputs/*"
+python3 parallel.py --end-number 14 --command "rm logs/*"
+python3 parallel.py --end-number 14 --command "rm nohup.out"

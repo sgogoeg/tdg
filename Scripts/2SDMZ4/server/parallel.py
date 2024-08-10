@@ -1,11 +1,13 @@
 '''
+Este script corre un comando en un numero dado de instancias. El comando va al fondo a través de nohup &
+
+Debe especificarse la ultima instancia que debe tomarse. En este caso esta limitado a 15 instancias
+
+e.g:
 
 python3 parallel.py --end-number 2 --command "python3 bachgen.py --files 5 --iterations 5"
 
-
 python3 parallel.py --end-number 2 --command "python3 batchrun.py --micromegas-path /home/sgogoeg/heptools/micromegas_6.0"
-
-
 
 '''
 

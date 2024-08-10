@@ -1,3 +1,0 @@
-Start processing inputs/input_Z4_20240808112559_0.csv at 08/08/2024 11:26:28
-End processing inputs/input_Z4_20240808112559_0.csv at 08/08/2024 11:26:29: SUCCESS
-Deleted inputs/input_Z4_20240808112559_0.csv after successful processing.
