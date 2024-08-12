@@ -1,0 +1,2 @@
+scp AbacoGen01@abaco.eia.edu.co:/home/AbacoGen01/Simon/scripts/instance0/outputs/* . 
+scp inputgenRandom.py AbacoGen01@abaco.eia.edu.co:/home/AbacoGen01/Simon/scripts/ 

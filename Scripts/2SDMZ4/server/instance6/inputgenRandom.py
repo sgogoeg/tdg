@@ -89,7 +89,8 @@ i = 0
 
 while(i<iter):
     randinx = np.random.randint(0, num_samples, 6)
-    paramtemp = np.array([M1[randinx[0]], lamb41, M2[randinx[1]], lamb42, lamb412[randinx[2]], lambS1[randinx[3]], lambS2[randinx[4]],
+    randsgn = np.random.choice([-1,1],3)
+    paramtemp = np.array([M1[randinx[0]], lamb41, M2[randinx[1]], lamb42, randsgn[0]*lamb412[randinx[2]], randsgn[1]*lambS1[randinx[3]], randsgn[2]*lambS2[randinx[4]],
                      muS1[randinx[5]], lamb51])
 
     Gamma1 = (paramtemp[0]<Mh) * 2 * paramtemp[5]**2 * vev**2 /(32*np.pi*Mh) * np.sqrt(1 - 4*paramtemp[0]**2/Mh**2 + 0j)
