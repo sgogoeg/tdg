@@ -93,9 +93,9 @@ while(i<iter):
     paramtemp = np.array([M1[randinx[0]], lamb41, M2[randinx[1]], lamb42, randsgn[0]*lamb412[randinx[2]], randsgn[1]*lambS1[randinx[3]], randsgn[2]*lambS2[randinx[4]],
                      muS1[randinx[5]], lamb51])
 
-    Gamma1 = (paramtemp[0]<Mh) * 2 * paramtemp[5]**2 * vev**2 /(32*np.pi*Mh) * np.sqrt(1 - 4*paramtemp[0]**2/Mh**2 + 0j)
+    Gamma1 = (paramtemp[0]<(Mh/2)) * 2 * paramtemp[5]**2 * vev**2 /(32*np.pi*Mh) * np.sqrt(1 - 4*paramtemp[0]**2/Mh**2 + 0j)
 
-    Gamma2 = (paramtemp[2]<Mh) * paramtemp[6]**2 * vev**2 /(32*np.pi*Mh) * np.sqrt(1 - 4*paramtemp[2]**2/Mh**2 + 0j)
+    Gamma2 = (paramtemp[2]<(Mh/2)) * paramtemp[6]**2 * vev**2 /(32*np.pi*Mh) * np.sqrt(1 - 4*paramtemp[2]**2/Mh**2 + 0j)
 
     # Condiciones para acoples no imaginarios y herarquias de masas y deteccion indirecta
     if (paramtemp[0] > paramtemp[2]) and ((paramtemp[0]**2 - 1/2 * paramtemp[5] * 246**2) > 0) and ((paramtemp[2]**2 - 1/2 * paramtemp[6] * 246**2) > 0) and (paramtemp[2] < 2*paramtemp[0]) and ((Gamma1 + Gamma2)/4.1e-3 <= 0.13):

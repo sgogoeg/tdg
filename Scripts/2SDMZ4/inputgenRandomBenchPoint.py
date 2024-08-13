@@ -82,7 +82,7 @@ while(i<iter):
     Gamma2 = (paramtemp[2]<Mh) * paramtemp[6]**2 * vev**2 /(32*np.pi*Mh) * np.sqrt(1 - 4*paramtemp[2]**2/Mh**2 + 0j)
 
     # Condiciones para acoples no imaginarios y herarquias de masas
-    if (paramtemp[0] > paramtemp[2]) and ((paramtemp[0]**2 - 1/2 * paramtemp[5] * 246**2) > 0) and ((paramtemp[2]**2 - 1/2 * paramtemp[6] * 246**2) > 0) and (paramtemp[2] < 2*paramtemp[0]) and (Gamma1 + Gamma2 <= 0.13):
+    if (paramtemp[0] > paramtemp[2]) and ((paramtemp[0]**2 - 1/2 * paramtemp[5] * 246**2) > 0) and ((paramtemp[2]**2 - 1/2 * paramtemp[6] * 246**2) > 0) and (paramtemp[2] < 2*paramtemp[0]) and ((Gamma1 + Gamma2)/4.1e-3  <= 0.13):
         input.append(paramtemp)
         i += 1
 
