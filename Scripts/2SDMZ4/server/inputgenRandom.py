@@ -40,8 +40,8 @@ base = 10
 
 # Masa campo 1
 
-startM1 = np.log10(40)
-stopM1 =  np.log10(2000)
+startM1 = np.log10(500)
+stopM1 =  np.log10(3000)
 
 M1 = np.logspace(startM1, stopM1, num_samples, base=base)
 
