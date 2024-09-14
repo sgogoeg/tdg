@@ -1,0 +1,35 @@
+2ScalarDMZ10
+ Parameters
+  Name         | Value       |> Comment                                                                <|
+cabi           |0.227736     |Cabibbo angle                                                             |
+DMlamb41       |0            |Coupling of complex DM particle                                           |
+DMlamb45       |0            |Coupling of real DM particle                                              |
+DMlamb415      |0            |Coupling of DM particles                                                  |
+DMlambS1       |0            |Coupling of complex DM particle with Higgs                                |
+DMlambS5       |0            |Coupling of real DM particle with Higgs                                   |
+DMlamb6151     |0            | Effective coupling of DM particles                                       |
+DMlamb6152     |0            | Effective coupling of DM particles                                       |
+DMlambS41      |0            | Effective coupling of complex DM particle with Higgs                     |
+DMlambS21      |0            | Effective coupling of complex DM particle with Higgs                     |
+DMlambS25      |0            | Effective coupling of real DM particle with Higgs                        |
+DMlambE10      |0            |Coupling of DM particles                                                  |
+aEWM1          |127.9        |Inverse of the EW coupling constant at the Z pole                         |
+Gf             |0.0000116637 |Fermi constant                                                            |
+aS             |0.1184       |Strong coupling constant at the Z pole                                    |
+ymb            |4.7          |Bottom Yukawa mass                                                        |
+ymt            |172          |Top Yukawa mass                                                           |
+ymtau          |1.777        |Tau Yukawa mass                                                           |
+GG             |1.21977796370|Strong coupling constant at the Z pole   This value will be ignored and ca|
+MZ             |91.1876      |Mass of G0.                                                               |
+MTA            |1.777        |Mass of ta.                                                               |
+MT             |172          |Mass of t.                                                                |
+MB             |4.7          |Mass of b.                                                                |
+MH             |125          |Mass of H.                                                                |
+MDM1           |1            |Mass of DM1.                                                              |
+MDM5           |1            |Mass of DM5.                                                              |
+%WZ            |2.4952       |Width of G0.                                                              |
+%WW            |2.085        |Width of GP.                                                              |
+%WT            |1.50833649   |Width of t.                                                               |
+%WH            |0.00407      |Width of H.                                                               |
+E              |2.71828182845|The base of the natural logarithm.                                        |
+Pi             |3.14159265358|The circumference of a circle divided by the diameter.                    |
