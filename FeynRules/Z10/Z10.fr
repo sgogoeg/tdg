@@ -171,7 +171,7 @@ M$Parameters = {
   DMlambS25 == {
     ParameterType -> External,
     BlockName     -> Dark,
-    OrderBlock    -> 14,
+    OrderBlock    -> 15,
     Value         -> 0,
     InteractionOrder -> {QED,2},
     TeX           -> Subscript[D\[Lambda],S25],
@@ -181,7 +181,7 @@ M$Parameters = {
   DMlambE10 == {
     ParameterType -> External,
     BlockName     -> Dark,
-    OrderBlock    -> 15,
+    OrderBlock    -> 16,
     Value         -> 0,
     InteractionOrder -> {QED,2},
     TeX           -> Subscript[D\[Lambda],E10],
@@ -219,7 +219,7 @@ M$Parameters = {
 
 V1 := Block[{ii, feynmangaugerules},
   feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
-  DMmu1SQRT DM1bar DM1 + DMlamb41 DM1bar DM1 DM1bar DM1 + 1/2 DMmu5SQRT DM5 DM5 + DMlamb44 DM5 DM5 DM5 DM5 
+  DMmu1SQRT DM1bar DM1 + DMlamb41 DM1bar DM1 DM1bar DM1 + 1/2 DMmu5SQRT DM5 DM5 + DMlamb45 DM5 DM5 DM5 DM5 
   + DMlamb415 DM1bar DM1 DM5 DM5 + DMlambS1 Phibar[ii] Phi[ii] DM1bar DM1 + 1/2 DMlambS5 Phibar[ii] Phi[ii] DM5 DM5 
   /.feynmangaugerules];
   
@@ -227,7 +227,7 @@ V1 := Block[{ii, feynmangaugerules},
 
 V1EFF := Block[{ii, feynmangaugerules},
   feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
-   DMlamb6151 DM1bar DM1 DM1bar DM1 DM4 DM4 + DMlamb6152 DM1bar DM1 DM4 DM4 DM4 DM4 
+   DMlamb6151 DM1bar DM1 DM1bar DM1 DM5 DM5 + DMlamb6152 DM1bar DM1 DM5 DM5 DM5 DM5 
    + DMlambS41 Phibar[ii] Phi[ii] Phibar[ii] Phi[ii] DM1bar DM1 + DMlambS21 Phibar[ii] Phi[ii] DM1bar DM1 DM1bar DM1
    + DMlambS45 Phibar[ii] Phi[ii] Phibar[ii] Phi[ii] DM5 DM5 + DMlambS25 Phibar[ii] Phi[ii] DM5 DM5 DM5 DM5
   /.feynmangaugerules];  

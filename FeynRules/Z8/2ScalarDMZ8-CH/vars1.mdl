@@ -11,8 +11,9 @@ DMlamb6141     |0            | Effective coupling of DM particles               
 DMlamb6142     |0            | Effective coupling of DM particles                                       |
 DMlambS41      |0            | Effective coupling of complex DM particle with Higgs                     |
 DMlambS21      |0            | Effective coupling of complex DM particle with Higgs                     |
+DMlambS44      |0            | Effective coupling of real DM particle with Higgs                        |
 DMlambS24      |0            | Effective coupling of real DM particle with Higgs                        |
-DMlambE8       |0            |Coupling of DM particle                                                   |
+DMlambE8       |0            |Coupling of DM particles                                                  |
 aEWM1          |127.9        |Inverse of the EW coupling constant at the Z pole                         |
 Gf             |0.0000116637 |Fermi constant                                                            |
 aS             |0.1184       |Strong coupling constant at the Z pole                                    |

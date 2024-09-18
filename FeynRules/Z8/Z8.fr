@@ -171,7 +171,7 @@ M$Parameters = {
   DMlambS24 == {
     ParameterType -> External,
     BlockName     -> Dark,
-    OrderBlock    -> 14,
+    OrderBlock    -> 15,
     Value         -> 0,
     InteractionOrder -> {QED,2},
     TeX           -> Subscript[D\[Lambda],S24],
@@ -181,7 +181,7 @@ M$Parameters = {
   DMlambE8 == {
     ParameterType -> External,
     BlockName     -> Dark,
-    OrderBlock    -> 15,
+    OrderBlock    -> 16,
     Value         -> 0,
     InteractionOrder -> {QED,2},
     TeX           -> Subscript[D\[Lambda],E8],
