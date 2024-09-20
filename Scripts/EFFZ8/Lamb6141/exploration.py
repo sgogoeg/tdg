@@ -7,8 +7,7 @@ El camino de micromegas, el nombre del input file y el nombre del output file so
 
 Example:
 
-python3 exploration.py --input input_Z4.csv --output output_Z4.csv --micromegas-path /home/sgogoeg/heptools/micromegas_6.0
-
+python3 exploration.py --input input_Z8_test.csv --output output_Z8.csv --micromegas-path /home/sgogoeg/heptools/micromegas_6.0
 '''
 
 import argparse
@@ -28,7 +27,7 @@ params = ['MDM1', 'DMlamb41', 'MDM4', 'DMlamb44', 'DMlamb414', 'DMlambS1', 'DMla
           'DMlambS44', 'DMlambS24', 'DMlambE8'] 
 
 # Para limpiar el data.par al principio
-data_par_path = f'{args.micromegas_path}/EffZ8/data.par'
+data_par_path = f'{args.micromegas_path}/EffZ8/dataL6141.par'
 with open(data_par_path, 'w') as tempfile:
     pass
 
@@ -43,9 +42,7 @@ with open(args.input, 'r') as csvfile:
     for row in reader:
         # Escribiendo los parametros en el data1.par
         with open(data_par_path, 'w') as tempfile:
-            tempfile.write(f"{params[0]} {row[0]}\n {params[1]} {row[1]}\n {params[2]} {row[2]}\n {params[3]} {row[3]}\n {params[4]} {row[4]}\n 
-                           {params[5]} {row[5]}\n {params[6]} {row[6]}\n {params[7]} {row[7]}\n {params[8]} {row[8]}\n {params[9]} {row[9]}\n 
-                           {params[10]} {row[10]}\n {params[11]} {row[11]}\n {params[12]} {row[12]}\n {params[13]} {row[13]}\n")
+            tempfile.write(f"{params[0]} {row[0]}\n{params[1]} {row[1]}\n{params[2]} {row[2]}\n{params[3]} {row[3]}\n{params[4]} {row[4]}\n{params[5]} {row[5]}\n{params[6]} {row[6]}\n{params[7]} {row[7]}\n{params[8]} {row[8]}\n{params[9]} {row[9]}\n{params[10]} {row[10]}\n{params[11]} {row[11]}\n{params[12]} {row[12]}\n{params[13]} {row[13]}")
         
         # Tomando el resultado
         result = subprocess.run(['./main', data_par_path], cwd=f'{args.micromegas_path}/EffZ8/' ,stdout=subprocess.PIPE, text=True)

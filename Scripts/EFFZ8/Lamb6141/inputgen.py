@@ -92,7 +92,7 @@ def split_csv(input_file, n):
         
         # Create and write to new CSV files
         for i in range(n):
-            with open(f"{input_file[:-4]}_{today}_part_{i}.csv", 'w', newline='') as outfile:
+            with open(f"{input_file[:-4]}_Z8_{today}_part_{i}.csv", 'w', newline='') as outfile:
                 writer = csv.writer(outfile)
                 
                 # Write the header row

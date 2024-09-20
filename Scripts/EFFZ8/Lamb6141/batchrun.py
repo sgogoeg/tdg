@@ -28,7 +28,7 @@ logs_dir = "logs"
 os.makedirs(logs_dir, exist_ok=True)
 
 # Find all input files in the inputs directory matching the pattern 'input_Z4_*.csv'
-input_files = glob.glob(os.path.join('inputs', 'input_Z4_*.csv'))
+input_files = glob.glob(os.path.join('inputs', 'input_Z8_*.csv'))
 
 # Open a log file to keep track of the process
 log_date = datetime.now().strftime("%Y%m%d%H%M%S")  # Use YYYY-MM-DD format for the date
@@ -37,7 +37,7 @@ log_file_path = os.path.join(logs_dir, log_file_name)
 with open(log_file_path, 'w') as log_file:
     for input_file in input_files:
         # Generate corresponding output filename by replacing 'inputs/input_' with 'outputs/output_' in the input filename
-        output_file = os.path.join(outputs_dir, 'output_I0_' + os.path.basename(input_file).replace('input_', ''))
+        output_file = os.path.join(outputs_dir, 'output_' + os.path.basename(input_file).replace('input_', ''))
         
         # Log the start time in d/m/y H:M:S format
         start_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
