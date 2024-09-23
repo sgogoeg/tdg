@@ -15,7 +15,8 @@
 %DMlambS21     |if(slhaFound,if(slhaValExists("Dark",1,13),slhaVal("Dark",0,1,13),DMlambS21Def),DMlambS21Def)                  % Effective coupling of complex DM particle with Hi
 %DMlambS45     |if(slhaFound,if(slhaValExists("Dark",1,14),slhaVal("Dark",0,1,14),DMlambS45Def),DMlambS45Def)                  % Effective coupling of real DM particle with Higgs
 %DMlambS25     |if(slhaFound,if(slhaValExists("Dark",1,15),slhaVal("Dark",0,1,15),DMlambS25Def),DMlambS25Def)                  % Effective coupling of real DM particle with Higgs
-%DMlambE10     |if(slhaFound,if(slhaValExists("Dark",1,16),slhaVal("Dark",0,1,16),DMlambE10Def),DMlambE10Def)                  %Coupling of DM particles                          
+%DMlamb6S15    |if(slhaFound,if(slhaValExists("Dark",1,16),slhaVal("Dark",0,1,16),DMlamb6S15Def),DMlamb6S15Def)                % Effective coupling of real DM particle, complex D
+%DMlambE10     |if(slhaFound,if(slhaValExists("Dark",1,17),slhaVal("Dark",0,1,17),DMlambE10Def),DMlambE10Def)                  %Coupling of DM particles                          
 %aEWM1         |if(slhaFound,if(slhaValExists("SMINPUTS",1,1),slhaVal("SMINPUTS",0,1,1),aEWM1Def),aEWM1Def)                    %Inverse of the EW coupling constant at the Z pole 
 %Gf            |if(slhaFound,if(slhaValExists("SMINPUTS",1,2),slhaVal("SMINPUTS",0,1,2),GfDef),GfDef)                          %Fermi constant                                    
 %aS            |if(slhaFound,if(slhaValExists("SMINPUTS",1,3),slhaVal("SMINPUTS",0,1,3),aSDef),aSDef)                          %Strong coupling constant at the Z pole            
@@ -58,7 +59,7 @@ I2a33          |yt                                                              
 I3a33          |yt                                                                                                             % Abbreviation used in optimizatized FeynRules outpu
 I4a33          |yb                                                                                                             % Abbreviation used in optimizatized FeynRules outpu
 x1x0           |4*DMlamb41+2*DMlambS21*pow(vev,2)                                                                              % ~DM1 ~DM1 ~dm1 ~dm1  coupling.
-x2x0           |2*DMlamb415                                                                                                    % ~DM1 ~dm1 ~~DM5~~DM5 coupling.
+x2x0           |2*DMlamb415+DMlamb6S15*pow(vev,2)                                                                              % ~DM1 ~dm1 ~~DM5~~DM5 coupling.
 x3x0           |12*(2*DMlamb45+DMlambS25*pow(vev,2))                                                                           % ~~DM5~~DM5~~DM5~~DM5 coupling.
 x4x0           |DMlambS1+DMlambS41*pow(vev,2)                                                                                  % ~DM1 ~dm1 Z.f  Z.f   coupling.
 x5x0           |DMlambS5+2*DMlambS45*pow(vev,2)                                                                                % ~~DM5~~DM5Z.f  Z.f   coupling.

@@ -13,6 +13,7 @@ DMlambS41      |0            | Effective coupling of complex DM particle with Hi
 DMlambS21      |0            | Effective coupling of complex DM particle with Higgs                     |
 DMlambS45      |0            | Effective coupling of real DM particle with Higgs                        |
 DMlambS25      |0            | Effective coupling of real DM particle with Higgs                        |
+DMlamb6S15     |0            | Effective coupling of real DM particle, complex DM particle and Higgs    |
 DMlambE10      |0            |Coupling of DM particles                                                  |
 aEWM1          |127.9        |Inverse of the EW coupling constant at the Z pole                         |
 Gf             |0.0000116637 |Fermi constant                                                            |

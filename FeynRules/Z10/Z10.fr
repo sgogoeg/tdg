@@ -177,11 +177,21 @@ M$Parameters = {
     TeX           -> Subscript[D\[Lambda],S25],
     Description      -> " Effective coupling of real DM particle with Higgs"
   },
+
+  DMlamb6S15 == {
+    ParameterType -> External,
+    BlockName     -> Dark,
+    OrderBlock    -> 16,
+    Value         -> 0,
+    InteractionOrder -> {QED,2},
+    TeX           -> Subscript[D\[Lambda],6S15],
+    Description      -> " Effective coupling of real DM particle, complex DM particle and Higgs"
+  },
   
   DMlambE10 == {
     ParameterType -> External,
     BlockName     -> Dark,
-    OrderBlock    -> 16,
+    OrderBlock    -> 17,
     Value         -> 0,
     InteractionOrder -> {QED,2},
     TeX           -> Subscript[D\[Lambda],E10],
@@ -230,6 +240,7 @@ V1EFF := Block[{ii, feynmangaugerules},
    DMlamb6151 DM1bar DM1 DM1bar DM1 DM5 DM5 + DMlamb6152 DM1bar DM1 DM5 DM5 DM5 DM5 
    + DMlambS41 Phibar[ii] Phi[ii] Phibar[ii] Phi[ii] DM1bar DM1 + DMlambS21 Phibar[ii] Phi[ii] DM1bar DM1 DM1bar DM1
    + DMlambS45 Phibar[ii] Phi[ii] Phibar[ii] Phi[ii] DM5 DM5 + DMlambS25 Phibar[ii] Phi[ii] DM5 DM5 DM5 DM5
+   + DMlamb6S15 Phibar[ii] Phi[ii] DM1bar DM1 DM5 DM5
   /.feynmangaugerules];  
 
 (* V2 Effective *)

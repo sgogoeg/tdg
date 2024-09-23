@@ -177,11 +177,21 @@ M$Parameters = {
     TeX           -> Subscript[D\[Lambda],S24],
     Description      -> " Effective coupling of real DM particle with Higgs"
   },
+
+  DMlamb6S14 == {
+    ParameterType -> External,
+    BlockName     -> Dark,
+    OrderBlock    -> 16,
+    Value         -> 0,
+    InteractionOrder -> {QED,2},
+    TeX           -> Subscript[D\[Lambda],6S14],
+    Description      -> " Effective coupling of real DM particle, complex DM particle and Higgs"
+  },
   
   DMlambE8 == {
     ParameterType -> External,
     BlockName     -> Dark,
-    OrderBlock    -> 16,
+    OrderBlock    -> 17,
     Value         -> 0,
     InteractionOrder -> {QED,2},
     TeX           -> Subscript[D\[Lambda],E8],
@@ -220,7 +230,7 @@ M$Parameters = {
 V1 := Block[{ii, feynmangaugerules},
   feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
   DMmu1SQRT DM1bar DM1 + DMlamb41 DM1bar DM1 DM1bar DM1 + 1/2 DMmu4SQRT DM4 DM4 + DMlamb44 DM4 DM4 DM4 DM4 
-  + DMlamb414 DM1bar DM1 DM4 DM4 + DMlambS1 Phibar[ii] Phi[ii] DM1bar DM1 + 1/2 DMlambS4 Phibar[ii] Phi[ii] DM4 DM4 
+  + DMlamb414 DM1bar DM1 DM4 DM4 + DMlambS1 Phibar[ii] Phi[ii] DM1bar DM1 + 1/2 DMlambS4 Phibar[ii] Phi[ii] DM4 DM4
   /.feynmangaugerules];
   
 (* V1 Effective *)
@@ -230,6 +240,7 @@ V1EFF := Block[{ii, feynmangaugerules},
    DMlamb6141 DM1bar DM1 DM1bar DM1 DM4 DM4 + DMlamb6142 DM1bar DM1 DM4 DM4 DM4 DM4 
    + DMlambS41 Phibar[ii] Phi[ii] Phibar[ii] Phi[ii] DM1bar DM1 + DMlambS21 Phibar[ii] Phi[ii] DM1bar DM1 DM1bar DM1
    + DMlambS44 Phibar[ii] Phi[ii] Phibar[ii] Phi[ii] DM4 DM4 + DMlambS24 Phibar[ii] Phi[ii] DM4 DM4 DM4 DM4
+   + DMlamb6S14 Phibar[ii] Phi[ii] DM1bar DM1 DM4 DM4
   /.feynmangaugerules];  
 
 (* V2 Effective *)
