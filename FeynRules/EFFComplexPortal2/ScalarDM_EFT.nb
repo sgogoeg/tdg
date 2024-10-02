@@ -1,0 +1,1059 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     47288,       1051]
+NotebookOptionsPosition[     40689,        952]
+NotebookOutlinePosition[     41131,        969]
+CellTagsIndexPosition[     41088,        966]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Quit", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.4921467751527157`*^9, 3.492146776183146*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"79a2711f-11c7-40a7-8788-a41a4ecfea43"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"CurrentDir", "=", 
+    RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.7447151265080214`*^9, 3.744715139953951*^9}, {
+  3.91191675295785*^9, 3.9119167552174883`*^9}, {3.911916819934782*^9, 
+  3.911916856521049*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"7ce67e36-ae85-4bc1-ab54-8df1371b6fa7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"$FeynRulesPath", "=", 
+  RowBox[{
+  "SetDirectory", "[", "\"\</home/sgogoeg/heptools/feynrules-current\>\"", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.9119168868147593`*^9, 3.911916897390195*^9}, {
+   3.923063270170331*^9, 3.923063276080398*^9}, 3.923063353849173*^9},
+ CellLabel->"In[2]:=",ExpressionUUID->"303a03c8-5c62-4801-a9e8-5cd01982ad7a"],
+
+Cell[BoxData["\<\"/home/sgogoeg/heptools/feynrules-current\"\>"], "Output",
+ CellChangeTimes->{{3.911916887805876*^9, 3.911916898916122*^9}, 
+   3.91191716109978*^9, 3.911990181476399*^9, 3.912794869463776*^9, 
+   3.9127949586654654`*^9, {3.915810343521061*^9, 3.9158103739724007`*^9}, 
+   3.9158105770799427`*^9, 3.917125074757283*^9, 3.918229968837369*^9, 
+   3.919422529880063*^9, 3.920572363016325*^9, {3.9205724889536867`*^9, 
+   3.920572489103134*^9}, 3.920640108116198*^9, 3.9224677622932987`*^9, 
+   3.922467954799217*^9, {3.922729160454713*^9, 3.922729160884079*^9}, 
+   3.922969403541689*^9, 3.922969660135036*^9, 3.922970662303837*^9, 
+   3.922973352902598*^9, 3.923063286617404*^9, 3.92306337010912*^9, 
+   3.923063428258725*^9, 3.9368237503153687`*^9, 3.9368240680734577`*^9, 
+   3.9368286737432747`*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"d69b4cb1-ec89-4608-a868-d66ccf714a7a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FileNames", "[", 
+  RowBox[{"\"\<*\>\"", ",", "$FeynRulesPath"}], "]"}]], "Input",
+ NumberMarks->False,
+ CellLabel->"In[3]:=",ExpressionUUID->"3db56444-8d93-4abf-935e-aeeed6853c84"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"/home/sgogoeg/heptools/feynrules-current/Core\"\>", 
+   ",", "\<\"/home/sgogoeg/heptools/feynrules-current/FeynRules.m\"\>", 
+   ",", "\<\"/home/sgogoeg/heptools/feynrules-current/FeynRulesPackage.m\"\>",
+    ",", "\<\"/home/sgogoeg/heptools/feynrules-current/FRPalette.nb\"\>", 
+   ",", "\<\"/home/sgogoeg/heptools/feynrules-current/Interfaces\"\>", 
+   ",", "\<\"/home/sgogoeg/heptools/feynrules-current/Models\"\>", 
+   ",", "\<\"/home/sgogoeg/heptools/feynrules-current/NLOCT.m\"\>", 
+   ",", "\<\"/home/sgogoeg/heptools/feynrules-current/ToolBox.m\"\>", 
+   ",", "\<\"/home/sgogoeg/heptools/feynrules-current/UpdateNotes.txt\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.936823751051548*^9, 3.936824070234198*^9, 
+  3.936828676253501*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"17dff783-c0fd-49f3-8790-0a16736e799a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"<<", "FeynRules`"}]], "Input",
+ CellChangeTimes->{{3.547535564344927*^9, 3.547535564971527*^9}, 
+   3.911916752230679*^9},
+ CellLabel->"In[4]:=",ExpressionUUID->"84e0b21b-1f19-43b2-ac85-385fa1c8003d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\" - FeynRules - \"\>"], "Print",
+ CellChangeTimes->{3.922970664098481*^9, 3.922973355257679*^9, 
+  3.923063290170436*^9, 3.923063372469501*^9, 3.923063430914323*^9, 
+  3.936823753214922*^9, 3.9368240716891613`*^9, 3.9368286784657097`*^9},
+ CellLabel->
+  "During evaluation of \
+In[4]:=",ExpressionUUID->"b7f0ee4e-a484-45f6-aa07-5bcb544be3cd"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Version: \"\>", "\[InvisibleSpace]", "\<\"2.3.49\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"\<\" (\"\>", " ", "\<\"29 September 2021\"\>"}], 
+   "\[InvisibleSpace]", "\<\").\"\>"}],
+  SequenceForm["Version: ", "2.3.49", " (" "29 September 2021", ")."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.922970664098481*^9, 3.922973355257679*^9, 
+  3.923063290170436*^9, 3.923063372469501*^9, 3.923063430914323*^9, 
+  3.936823753214922*^9, 3.9368240716891613`*^9, 3.936828678471072*^9},
+ CellLabel->
+  "During evaluation of \
+In[4]:=",ExpressionUUID->"59f0bd92-f94a-4483-a337-810f898ecf8c"],
+
+Cell[BoxData["\<\"Authors: A. Alloul, N. Christensen, C. Degrande, C. Duhr, \
+B. Fuks\"\>"], "Print",
+ CellChangeTimes->{3.922970664098481*^9, 3.922973355257679*^9, 
+  3.923063290170436*^9, 3.923063372469501*^9, 3.923063430914323*^9, 
+  3.936823753214922*^9, 3.9368240716891613`*^9, 3.936828678480337*^9},
+ CellLabel->
+  "During evaluation of \
+In[4]:=",ExpressionUUID->"40e83551-1e0f-4231-b21f-0cf553b8d6e7"],
+
+Cell[BoxData["\<\" \"\>"], "Print",
+ CellChangeTimes->{3.922970664098481*^9, 3.922973355257679*^9, 
+  3.923063290170436*^9, 3.923063372469501*^9, 3.923063430914323*^9, 
+  3.936823753214922*^9, 3.9368240716891613`*^9, 3.936828678482266*^9},
+ CellLabel->
+  "During evaluation of \
+In[4]:=",ExpressionUUID->"999a66d1-9343-4fca-ae64-86f18fc1e78a"],
+
+Cell[BoxData["\<\"Please cite:\"\>"], "Print",
+ CellChangeTimes->{3.922970664098481*^9, 3.922973355257679*^9, 
+  3.923063290170436*^9, 3.923063372469501*^9, 3.923063430914323*^9, 
+  3.936823753214922*^9, 3.9368240716891613`*^9, 3.936828678483849*^9},
+ CellLabel->
+  "During evaluation of \
+In[4]:=",ExpressionUUID->"4d28f397-9001-4f0b-bf45-a6a483a3ee04"],
+
+Cell[BoxData["\<\"    - Comput.Phys.Commun.185:2250-2300,2014 \
+(arXiv:1310.1921);\"\>"], "Print",
+ CellChangeTimes->{3.922970664098481*^9, 3.922973355257679*^9, 
+  3.923063290170436*^9, 3.923063372469501*^9, 3.923063430914323*^9, 
+  3.936823753214922*^9, 3.9368240716891613`*^9, 3.936828678485338*^9},
+ CellLabel->
+  "During evaluation of \
+In[4]:=",ExpressionUUID->"5c25b6a1-c9a0-4712-a827-b1f89200ea2a"],
+
+Cell[BoxData["\<\"    - Comput.Phys.Commun.180:1614-1641,2009 \
+(arXiv:0806.4194).\"\>"], "Print",
+ CellChangeTimes->{3.922970664098481*^9, 3.922973355257679*^9, 
+  3.923063290170436*^9, 3.923063372469501*^9, 3.923063430914323*^9, 
+  3.936823753214922*^9, 3.9368240716891613`*^9, 3.93682867848682*^9},
+ CellLabel->
+  "During evaluation of \
+In[4]:=",ExpressionUUID->"722c64ed-db58-4cd5-bc33-4f8e7e223e2e"],
+
+Cell[BoxData["\<\" \"\>"], "Print",
+ CellChangeTimes->{3.922970664098481*^9, 3.922973355257679*^9, 
+  3.923063290170436*^9, 3.923063372469501*^9, 3.923063430914323*^9, 
+  3.936823753214922*^9, 3.9368240716891613`*^9, 3.936828678488312*^9},
+ CellLabel->
+  "During evaluation of \
+In[4]:=",ExpressionUUID->"36bdbd15-6448-411c-9acd-77a6b5ef8b84"],
+
+Cell[BoxData["\<\"http://feynrules.phys.ucl.ac.be\"\>"], "Print",
+ CellChangeTimes->{3.922970664098481*^9, 3.922973355257679*^9, 
+  3.923063290170436*^9, 3.923063372469501*^9, 3.923063430914323*^9, 
+  3.936823753214922*^9, 3.9368240716891613`*^9, 3.936828678495956*^9},
+ CellLabel->
+  "During evaluation of \
+In[4]:=",ExpressionUUID->"76803df4-857e-49de-8996-2df1a006ff86"],
+
+Cell[BoxData["\<\" \"\>"], "Print",
+ CellChangeTimes->{3.922970664098481*^9, 3.922973355257679*^9, 
+  3.923063290170436*^9, 3.923063372469501*^9, 3.923063430914323*^9, 
+  3.936823753214922*^9, 3.9368240716891613`*^9, 3.9368286784979353`*^9},
+ CellLabel->
+  "During evaluation of \
+In[4]:=",ExpressionUUID->"c94d893b-3afb-4240-9dc9-980702f22dcf"],
+
+Cell[BoxData["\<\"The FeynRules palette can be opened using the command \
+FRPalette[].\"\>"], "Print",
+ CellChangeTimes->{3.922970664098481*^9, 3.922973355257679*^9, 
+  3.923063290170436*^9, 3.923063372469501*^9, 3.923063430914323*^9, 
+  3.936823753214922*^9, 3.9368240716891613`*^9, 3.936828678499567*^9},
+ CellLabel->
+  "During evaluation of \
+In[4]:=",ExpressionUUID->"44d6ae9b-db41-4c1e-9ffd-b4825289a9f2"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", "CurrentDir", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.419073170860696*^9, 3.419073182827229*^9}, {
+  3.744715201044201*^9, 3.74471520315282*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"1d5de7af-e694-487f-ab84-c4d8975a754b"],
+
+Cell[CellGroupData[{
+
+Cell["Loading the Model", "Title",
+ CellChangeTimes->{{3.79244005707275*^9, 
+  3.792440063507267*^9}},ExpressionUUID->"df148e8b-ec56-4e92-9d8c-\
+21ac05c839df"],
+
+Cell["We first load in the model file (together with SM.fr)", "Text",
+ CellChangeTimes->{{3.792440081583366*^9, 3.792440095596834*^9}, {
+  3.912794885380028*^9, 
+  3.912794887193016*^9}},ExpressionUUID->"74a59a07-ed3f-473c-830e-\
+e885a1549ad4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"LoadModel", "[", 
+  RowBox[{"\"\<SM.fr\>\"", ",", "\"\<ScalarDM_EFT.fr\>\""}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"LoadRestriction", "[", 
+  RowBox[{"\"\<Massless.rst\>\"", ",", "\"\<Cabibbo.rst\>\""}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.4022069973481913`*^9, 3.402207011768662*^9}, 
+   3.4022081212072697`*^9, {3.402208250379383*^9, 3.402208254043104*^9}, 
+   3.4027466057480917`*^9, {3.403240270135737*^9, 3.403240277228945*^9}, 
+   3.403266503388291*^9, {3.403267649630335*^9, 3.40326765417397*^9}, {
+   3.403269919787421*^9, 3.403269921965273*^9}, {3.403347551273425*^9, 
+   3.403347555049163*^9}, 3.4044490490588417`*^9, {3.411744339876704*^9, 
+   3.411744340012457*^9}, {3.4121886924550533`*^9, 3.412188699157571*^9}, 
+   3.412188808811866*^9, 3.4121888580521603`*^9, {3.412450464077868*^9, 
+   3.412450464378695*^9}, {3.413715097460478*^9, 3.41371509757642*^9}, {
+   3.41440825334604*^9, 3.414408254159686*^9}, {3.41862573831756*^9, 
+   3.4186257392223186`*^9}, {3.4190731862389174`*^9, 3.419073187003003*^9}, {
+   3.419073336802393*^9, 3.4190733374513063`*^9}, {3.4190828041801767`*^9, 
+   3.4190828048079023`*^9}, 3.542453089813714*^9, 3.547534567644828*^9, {
+   3.792440067303673*^9, 3.792440073043148*^9}, {3.9119169621023893`*^9, 
+   3.911916975293736*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"9721c06f-7988-4bf2-b675-d90783d1982f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Merging model-files...\"\>"], "Print",
+ ShowCellLabel->True,
+ CellChangeTimes->{{3.915810561503603*^9, 3.9158105875750723`*^9}, 
+   3.91712509036972*^9, 3.918229977587389*^9, 3.919422542759102*^9, 
+   3.920572374514776*^9, 3.920572498071031*^9, 3.9206401171161737`*^9, 
+   3.9224677744951677`*^9, 3.922467962554188*^9, 3.922729170170145*^9, 
+   3.922969411855497*^9, 3.9229696665649652`*^9, 3.922970670563878*^9, 
+   3.922973362160445*^9, 3.923063299000063*^9, 3.936823760563652*^9, 
+   3.936824077968136*^9, 3.936828689621764*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"097a07a5-228a-455d-84b2-6dd6d7d80018"],
+
+Cell[BoxData["\<\"This model implementation was created by\"\>"], "Print",
+ ShowCellLabel->True,
+ CellChangeTimes->{{3.915810561503603*^9, 3.9158105875750723`*^9}, 
+   3.91712509036972*^9, 3.918229977587389*^9, 3.919422542759102*^9, 
+   3.920572374514776*^9, 3.920572498071031*^9, 3.9206401171161737`*^9, 
+   3.9224677744951677`*^9, 3.922467962554188*^9, 3.922729170170145*^9, 
+   3.922969411855497*^9, 3.9229696665649652`*^9, 3.922970670563878*^9, 
+   3.922973362160445*^9, 3.923063299000063*^9, 3.936823760563652*^9, 
+   3.936824077968136*^9, 3.936828689660234*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"910757ec-db25-4c99-a63d-ce814caa60a1"],
+
+Cell[BoxData["\<\"S. Gonz\[AAcute]lez\"\>"], "Print",
+ ShowCellLabel->True,
+ CellChangeTimes->{{3.915810561503603*^9, 3.9158105875750723`*^9}, 
+   3.91712509036972*^9, 3.918229977587389*^9, 3.919422542759102*^9, 
+   3.920572374514776*^9, 3.920572498071031*^9, 3.9206401171161737`*^9, 
+   3.9224677744951677`*^9, 3.922467962554188*^9, 3.922729170170145*^9, 
+   3.922969411855497*^9, 3.9229696665649652`*^9, 3.922970670563878*^9, 
+   3.922973362160445*^9, 3.923063299000063*^9, 3.936823760563652*^9, 
+   3.936824077968136*^9, 3.9368286896636057`*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"ef90d3d9-bbcf-4564-be11-5ac470508e67"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Model Version: \"\>", "\[InvisibleSpace]", "\<\"1.0\"\>"}],
+  SequenceForm["Model Version: ", "1.0"],
+  Editable->False]], "Print",
+ ShowCellLabel->True,
+ CellChangeTimes->{{3.915810561503603*^9, 3.9158105875750723`*^9}, 
+   3.91712509036972*^9, 3.918229977587389*^9, 3.919422542759102*^9, 
+   3.920572374514776*^9, 3.920572498071031*^9, 3.9206401171161737`*^9, 
+   3.9224677744951677`*^9, 3.922467962554188*^9, 3.922729170170145*^9, 
+   3.922969411855497*^9, 3.9229696665649652`*^9, 3.922970670563878*^9, 
+   3.922973362160445*^9, 3.923063299000063*^9, 3.936823760563652*^9, 
+   3.936824077968136*^9, 3.93682868966538*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"d338eba0-33e8-44ec-8c83-416755ba37bb"],
+
+Cell[BoxData["\<\"none\"\>"], "Print",
+ ShowCellLabel->True,
+ CellChangeTimes->{{3.915810561503603*^9, 3.9158105875750723`*^9}, 
+   3.91712509036972*^9, 3.918229977587389*^9, 3.919422542759102*^9, 
+   3.920572374514776*^9, 3.920572498071031*^9, 3.9206401171161737`*^9, 
+   3.9224677744951677`*^9, 3.922467962554188*^9, 3.922729170170145*^9, 
+   3.922969411855497*^9, 3.9229696665649652`*^9, 3.922970670563878*^9, 
+   3.922973362160445*^9, 3.923063299000063*^9, 3.936823760563652*^9, 
+   3.936824077968136*^9, 3.9368286896672087`*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"1536ebd8-24b7-44ff-83b8-24d85c811594"],
+
+Cell[BoxData["\<\"For more information, type ModelInformation[].\"\>"], \
+"Print",
+ ShowCellLabel->True,
+ CellChangeTimes->{{3.915810561503603*^9, 3.9158105875750723`*^9}, 
+   3.91712509036972*^9, 3.918229977587389*^9, 3.919422542759102*^9, 
+   3.920572374514776*^9, 3.920572498071031*^9, 3.9206401171161737`*^9, 
+   3.9224677744951677`*^9, 3.922467962554188*^9, 3.922729170170145*^9, 
+   3.922969411855497*^9, 3.9229696665649652`*^9, 3.922970670563878*^9, 
+   3.922973362160445*^9, 3.923063299000063*^9, 3.936823760563652*^9, 
+   3.936824077968136*^9, 3.9368286896688633`*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"61fc5518-febe-4e56-a84a-b072be517231"],
+
+Cell[BoxData["\<\"\"\>"], "Print",
+ ShowCellLabel->True,
+ CellChangeTimes->{{3.915810561503603*^9, 3.9158105875750723`*^9}, 
+   3.91712509036972*^9, 3.918229977587389*^9, 3.919422542759102*^9, 
+   3.920572374514776*^9, 3.920572498071031*^9, 3.9206401171161737`*^9, 
+   3.9224677744951677`*^9, 3.922467962554188*^9, 3.922729170170145*^9, 
+   3.922969411855497*^9, 3.9229696665649652`*^9, 3.922970670563878*^9, 
+   3.922973362160445*^9, 3.923063299000063*^9, 3.936823760563652*^9, 
+   3.936824077968136*^9, 3.936828689670587*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"85491d62-7fee-4496-964c-e629df17be44"],
+
+Cell[BoxData["\<\"   - Loading particle classes.\"\>"], "Print",
+ ShowCellLabel->True,
+ CellChangeTimes->{{3.915810561503603*^9, 3.9158105875750723`*^9}, 
+   3.91712509036972*^9, 3.918229977587389*^9, 3.919422542759102*^9, 
+   3.920572374514776*^9, 3.920572498071031*^9, 3.9206401171161737`*^9, 
+   3.9224677744951677`*^9, 3.922467962554188*^9, 3.922729170170145*^9, 
+   3.922969411855497*^9, 3.9229696665649652`*^9, 3.922970670563878*^9, 
+   3.922973362160445*^9, 3.923063299000063*^9, 3.936823760563652*^9, 
+   3.936824077968136*^9, 3.936828689672882*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"889534b9-963f-4028-a19c-d292358ee0e8"],
+
+Cell[BoxData["\<\"   - Loading gauge group classes.\"\>"], "Print",
+ ShowCellLabel->True,
+ CellChangeTimes->{{3.915810561503603*^9, 3.9158105875750723`*^9}, 
+   3.91712509036972*^9, 3.918229977587389*^9, 3.919422542759102*^9, 
+   3.920572374514776*^9, 3.920572498071031*^9, 3.9206401171161737`*^9, 
+   3.9224677744951677`*^9, 3.922467962554188*^9, 3.922729170170145*^9, 
+   3.922969411855497*^9, 3.9229696665649652`*^9, 3.922970670563878*^9, 
+   3.922973362160445*^9, 3.923063299000063*^9, 3.936823760563652*^9, 
+   3.936824077968136*^9, 3.936828689721912*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"bedf83c6-e5d3-4189-b4c7-66f04ddabdf5"],
+
+Cell[BoxData["\<\"   - Loading parameter classes.\"\>"], "Print",
+ ShowCellLabel->True,
+ CellChangeTimes->{{3.915810561503603*^9, 3.9158105875750723`*^9}, 
+   3.91712509036972*^9, 3.918229977587389*^9, 3.919422542759102*^9, 
+   3.920572374514776*^9, 3.920572498071031*^9, 3.9206401171161737`*^9, 
+   3.9224677744951677`*^9, 3.922467962554188*^9, 3.922729170170145*^9, 
+   3.922969411855497*^9, 3.9229696665649652`*^9, 3.922970670563878*^9, 
+   3.922973362160445*^9, 3.923063299000063*^9, 3.936823760563652*^9, 
+   3.936824077968136*^9, 3.936828689726742*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"57306c99-d85c-4cc6-988d-d259f239578b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\\nModel \"\>", "\[InvisibleSpace]", "\<\"ScalarDM_EFT\"\>", 
+   "\[InvisibleSpace]", "\<\" loaded.\"\>"}],
+  SequenceForm["\nModel ", "ScalarDM_EFT", " loaded."],
+  Editable->False]], "Print",
+ ShowCellLabel->True,
+ CellChangeTimes->{{3.915810561503603*^9, 3.9158105875750723`*^9}, 
+   3.91712509036972*^9, 3.918229977587389*^9, 3.919422542759102*^9, 
+   3.920572374514776*^9, 3.920572498071031*^9, 3.9206401171161737`*^9, 
+   3.9224677744951677`*^9, 3.922467962554188*^9, 3.922729170170145*^9, 
+   3.922969411855497*^9, 3.9229696665649652`*^9, 3.922970670563878*^9, 
+   3.922973362160445*^9, 3.923063299000063*^9, 3.936823760563652*^9, 
+   3.936824077968136*^9, 3.936828689774523*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"c44be27f-9bcc-4d17-8d0c-f306b89385da"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Loading restrictions from \"\>", 
+   "\[InvisibleSpace]", "\<\"Massless.rst\"\>", 
+   "\[InvisibleSpace]", "\<\" : \"\>", "\[InvisibleSpace]", 
+   DynamicBox[ToBoxes[PRIVATE`FR$restrictionCounter, StandardForm],
+    ImageSizeCache->{7.1953125, {0., 8.}}], 
+   "\[InvisibleSpace]", "\<\" / \"\>", "\[InvisibleSpace]", "18"}],
+  SequenceForm["Loading restrictions from ", "Massless.rst", " : ", 
+   Dynamic[PRIVATE`FR$restrictionCounter], " / ", 18],
+  Editable->False]], "Print",
+ ShowCellLabel->True,
+ CellChangeTimes->{{3.915810561503603*^9, 3.9158105875750723`*^9}, 
+   3.91712509036972*^9, 3.918229977587389*^9, 3.919422542759102*^9, 
+   3.920572374514776*^9, 3.920572498071031*^9, 3.9206401171161737`*^9, 
+   3.9224677744951677`*^9, 3.922467962554188*^9, 3.922729170170145*^9, 
+   3.922969411855497*^9, 3.9229696665649652`*^9, 3.922970670563878*^9, 
+   3.922973362160445*^9, 3.923063299000063*^9, 3.936823760563652*^9, 
+   3.936824077968136*^9, 3.936828690804448*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"f48252ca-9868-4211-815d-7e0567fe9d5f"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Loading restrictions from \"\>", 
+   "\[InvisibleSpace]", "\<\"Cabibbo.rst\"\>", 
+   "\[InvisibleSpace]", "\<\" : \"\>", "\[InvisibleSpace]", 
+   DynamicBox[ToBoxes[PRIVATE`FR$restrictionCounter, StandardForm],
+    ImageSizeCache->{7.1953125, {0., 8.}}], 
+   "\[InvisibleSpace]", "\<\" / \"\>", "\[InvisibleSpace]", "6"}],
+  SequenceForm["Loading restrictions from ", "Cabibbo.rst", " : ", 
+   Dynamic[PRIVATE`FR$restrictionCounter], " / ", 6],
+  Editable->False]], "Print",
+ ShowCellLabel->True,
+ CellChangeTimes->{{3.915810561503603*^9, 3.9158105875750723`*^9}, 
+   3.91712509036972*^9, 3.918229977587389*^9, 3.919422542759102*^9, 
+   3.920572374514776*^9, 3.920572498071031*^9, 3.9206401171161737`*^9, 
+   3.9224677744951677`*^9, 3.922467962554188*^9, 3.922729170170145*^9, 
+   3.922969411855497*^9, 3.9229696665649652`*^9, 3.922970670563878*^9, 
+   3.922973362160445*^9, 3.923063299000063*^9, 3.936823760563652*^9, 
+   3.936824077968136*^9, 3.936828691794767*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"74482197-d21e-4ced-962e-cf67201095f7"],
+
+Cell[BoxData["\<\"Restrictions loaded.\"\>"], "Print",
+ ShowCellLabel->True,
+ CellChangeTimes->{{3.915810561503603*^9, 3.9158105875750723`*^9}, 
+   3.91712509036972*^9, 3.918229977587389*^9, 3.919422542759102*^9, 
+   3.920572374514776*^9, 3.920572498071031*^9, 3.9206401171161737`*^9, 
+   3.9224677744951677`*^9, 3.922467962554188*^9, 3.922729170170145*^9, 
+   3.922969411855497*^9, 3.9229696665649652`*^9, 3.922970670563878*^9, 
+   3.922973362160445*^9, 3.923063299000063*^9, 3.936823760563652*^9, 
+   3.936824077968136*^9, 3.936828692298411*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"00e4cbe1-0080-42f2-adda-4860b1c2888e"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The Lagrangian", "Section",
+ CellChangeTimes->{{3.411910065227421*^9, 3.411910071535137*^9}, {
+  3.7924401856089973`*^9, 
+  3.79244018745649*^9}},ExpressionUUID->"c827882f-085e-408d-82be-\
+d305b5ee08ea"],
+
+Cell["\<\
+The SM Lagrangian is not changed, the Real Scalar DM EFT Lagrangian is\
+\>", "Text",
+ CellChangeTimes->{{3.79244023785155*^9, 3.792440273125349*^9}, {
+  3.7924404284431877`*^9, 3.792440429957967*^9}, {3.911986223445799*^9, 
+  3.9119862309623137`*^9}},ExpressionUUID->"e89f5a82-be4c-47ba-b87d-\
+fd6620df5e5c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"LDRENOM", ",", " ", "LD6"}], "}"}]], "Input",
+ CellChangeTimes->{{3.7924402745363693`*^9, 3.792440284719664*^9}, {
+  3.792440388170953*^9, 3.7924404164586687`*^9}, {3.911917255968444*^9, 
+  3.911917280965526*^9}, {3.922969672510537*^9, 3.922969674175517*^9}, {
+  3.936828694414804*^9, 3.936828695414583*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"a1dcbc83-6f3c-4475-b836-c96150d3f83d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["MSDM", "2"], " ", 
+     SuperscriptBox["SDM", "2"]}], "2"], ",", 
+   RowBox[{
+    SuperscriptBox["SDM", "2"], " ", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      SuperscriptBox["SDM", "\[Dagger]"], ")"}], "2"], " ", 
+    SubscriptBox["W6", "5"], " ", 
+    SubscriptBox["Phi", "ii"], " ", 
+    SubsuperscriptBox["Phi", "ii", "\[Dagger]"]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.917125102456938*^9, 3.918229984268188*^9, 
+  3.9194225495420732`*^9, 3.9205723797277317`*^9, 3.920572507787653*^9, 
+  3.92064012246964*^9, 3.9224677852749643`*^9, 3.922467984053175*^9, 
+  3.9227291760437803`*^9, 3.922969418829224*^9, 3.922969675294547*^9, 
+  3.9229706751248703`*^9, 3.922973372696912*^9, 3.9368237651496897`*^9, 
+  3.936824082297867*^9, 3.936828697053928*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"b4c03e05-9321-43c0-97c1-c04674d486ab"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.917125040927245*^9, 3.917125041978013*^9}, 
+   3.9224679775778847`*^9},ExpressionUUID->"097fbe90-8a5a-45a3-a91a-\
+07a2366b2b6e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"WriteCHOutput", "[", "LSDMEFT", "]"}]], "Input",
+ CellChangeTimes->{{3.917125108261924*^9, 3.917125137982998*^9}, {
+  3.9229706458055468`*^9, 3.9229706462142353`*^9}, {3.92297334097572*^9, 
+  3.922973343388072*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"7b015477-bb33-4b70-a08b-c931e8c7ad38"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\" - - - FeynRules interface to CalcHep/CompHEP\"\>"], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.936828707934333*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"1d3529e6-4421-464b-8530-2606503a4995"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\" - - - \"\>", "\[InvisibleSpace]", 
+   StyleBox["\<\"Authors:\"\>",
+    StripOnInput->False,
+    LineColor->RGBColor[0, 0, 1],
+    FrontFaceColor->RGBColor[0, 0, 1],
+    BackFaceColor->RGBColor[0, 0, 1],
+    GraphicsColor->RGBColor[0, 0, 1],
+    FontColor->RGBColor[0, 0, 1]], 
+   "\[InvisibleSpace]", "\<\" N. Christensen, C. Duhr\"\>"}],
+  SequenceForm[" - - - ", 
+   Style["Authors:", 
+    RGBColor[0, 0, 1]], " N. Christensen, C. Duhr"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.936828707936455*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"06525cc3-a952-4d26-95b0-68841aa3cee8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\" - - - \"\>", "\[InvisibleSpace]", 
+   StyleBox["\<\"Please cite:\"\>",
+    StripOnInput->False,
+    LineColor->RGBColor[0, 0, 1],
+    FrontFaceColor->RGBColor[0, 0, 1],
+    BackFaceColor->RGBColor[0, 0, 1],
+    GraphicsColor->RGBColor[0, 0, 1],
+    FontColor->RGBColor[0, 0, 1]], 
+   "\[InvisibleSpace]", "\<\" arXiv:0906.2474\"\>"}],
+  SequenceForm[" - - - ", 
+   Style["Please cite:", 
+    RGBColor[0, 0, 1]], " arXiv:0906.2474"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.936828707938582*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"309d8a03-e5aa-4c12-9dba-c338a4cc60b9"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   StyleBox["\<\"\\nWriting\"\>",
+    StripOnInput->False,
+    LineColor->RGBColor[0, 0, 1],
+    FrontFaceColor->RGBColor[0, 0, 1],
+    BackFaceColor->RGBColor[0, 0, 1],
+    GraphicsColor->RGBColor[0, 0, 1],
+    FontColor->RGBColor[0, 0, 1]], 
+   "\[InvisibleSpace]", "\<\" files to \
+/home/sgogoeg/Documents/Universidad/tdg/FeynRules/EFFComplexPortal2/ScalarDM_\
+EFT-CH.\"\>"}],
+  SequenceForm[
+   Style["\nWriting", 
+    RGBColor[0, 0, 1]], 
+   " files to \
+/home/sgogoeg/Documents/Universidad/tdg/FeynRules/EFFComplexPortal2/ScalarDM_\
+EFT-CH."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.936828707940538*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"c88565d9-c04a-413f-a289-a79e04d13cf9"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   StyleBox["\<\"\\nWriting\"\>",
+    StripOnInput->False,
+    LineColor->RGBColor[0, 0, 1],
+    FrontFaceColor->RGBColor[0, 0, 1],
+    BackFaceColor->RGBColor[0, 0, 1],
+    GraphicsColor->RGBColor[0, 0, 1],
+    FontColor->RGBColor[0, 0, 1]], 
+   "\[InvisibleSpace]", "\<\" particles file 'prtcls1.mdl'.\"\>"}],
+  SequenceForm[
+   Style["\nWriting", 
+    RGBColor[0, 0, 1]], " particles file 'prtcls1.mdl'."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.93682870794247*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"feab83ad-cbab-42a9-8620-135921c9cb73"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   StyleBox["\<\"\\nWriting\"\>",
+    StripOnInput->False,
+    LineColor->RGBColor[0, 0, 1],
+    FrontFaceColor->RGBColor[0, 0, 1],
+    BackFaceColor->RGBColor[0, 0, 1],
+    GraphicsColor->RGBColor[0, 0, 1],
+    FontColor->RGBColor[0, 0, 1]], 
+   "\[InvisibleSpace]", "\<\" external parameter file 'vars1.mdl'.\"\>"}],
+  SequenceForm[
+   Style["\nWriting", 
+    RGBColor[0, 0, 1]], " external parameter file 'vars1.mdl'."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.936828707944384*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"c8143573-f83d-4ec1-9e6f-0777b06734a8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   StyleBox["\<\"\\nWriting\"\>",
+    StripOnInput->False,
+    LineColor->RGBColor[0, 0, 1],
+    FrontFaceColor->RGBColor[0, 0, 1],
+    BackFaceColor->RGBColor[0, 0, 1],
+    GraphicsColor->RGBColor[0, 0, 1],
+    FontColor->RGBColor[0, 0, 1]], 
+   "\[InvisibleSpace]", "\<\" internal parameter file 'func1.mdl'.\"\>"}],
+  SequenceForm[
+   Style["\nWriting", 
+    RGBColor[0, 0, 1]], " internal parameter file 'func1.mdl'."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.936828707946373*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"875f381a-1532-45f6-8a1c-c3147e662457"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   StyleBox["\<\"\\nWriting\"\>",
+    StripOnInput->False,
+    LineColor->RGBColor[0, 0, 1],
+    FrontFaceColor->RGBColor[0, 0, 1],
+    BackFaceColor->RGBColor[0, 0, 1],
+    GraphicsColor->RGBColor[0, 0, 1],
+    FontColor->RGBColor[0, 0, 1]], 
+   "\[InvisibleSpace]", "\<\" external library file 'extlib1.mdl'.\"\>"}],
+  SequenceForm[
+   Style["\nWriting", 
+    RGBColor[0, 0, 1]], " external library file 'extlib1.mdl'."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.9368287079776993`*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"308186c2-c259-4cf3-9597-1c2333a63a7b"],
+
+Cell[BoxData["\<\"\"\>"], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.936828707981114*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"4616de57-6568-43f9-9e3b-e3333305024e"],
+
+Cell[BoxData[
+ StyleBox["\<\"Starting Feynman rule calculation.\"\>",
+  StripOnInput->False,
+  LineColor->RGBColor[1, 0.5, 0],
+  FrontFaceColor->RGBColor[1, 0.5, 0],
+  BackFaceColor->RGBColor[1, 0.5, 0],
+  GraphicsColor->RGBColor[1, 0.5, 0],
+  FontWeight->Bold,
+  FontColor->RGBColor[1, 0.5, 0]]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.936828708059374*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"b9ed8dcb-6b2b-47ba-9470-d93e198a39a2"],
+
+Cell[BoxData["\<\"Expanding the Lagrangian...\"\>"], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.9368287080613527`*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"aa168234-7378-413e-8d7b-b176d0abb506"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Expanding the indices over \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\" cores\"\>"}],
+  SequenceForm["Expanding the indices over ", 6, " cores"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.9368287080632563`*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"37f68f9a-0a38-4852-88fb-0deba0e3a550"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Neglecting all terms with more than \"\>", 
+   "\[InvisibleSpace]", "\<\"4\"\>", 
+   "\[InvisibleSpace]", "\<\" particles.\"\>"}],
+  SequenceForm["Neglecting all terms with more than ", "4", " particles."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.936828708128463*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"b82ec79e-32b4-4959-a6d4-225d82fde993"],
+
+Cell[BoxData["\<\"Collecting the different structures that enter the \
+vertex.\"\>"], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.936828712037784*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"a5eb3b56-0d1b-4f10-bfb1-be24d365013e"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+  "99", "\[InvisibleSpace]", "\<\" possible non-zero vertices have been found \
+-> starting the computation: \"\>", "\[InvisibleSpace]", 
+   DynamicBox[ToBoxes[FeynRules`FR$FeynmanRules, StandardForm],
+    ImageSizeCache->{14.390625, {0., 8.}}], 
+   "\[InvisibleSpace]", "\<\" / \"\>", "\[InvisibleSpace]", "99", 
+   "\[InvisibleSpace]", "\<\".\"\>"}],
+  SequenceForm[
+  99, " possible non-zero vertices have been found -> starting the \
+computation: ", 
+   Dynamic[FeynRules`FR$FeynmanRules], " / ", 99, "."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.9368287120604486`*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"0a03677e-25e5-4b9c-b527-20ef37536d32"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"94", "\[InvisibleSpace]", "\<\" vertices obtained.\"\>"}],
+  SequenceForm[94, " vertices obtained."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.936828714509717*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"8a6caa1e-6ff3-47c1-a01a-05a90024ba5b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Flavor expansion of the vertices distributed over \"\>", 
+   "\[InvisibleSpace]", "6", "\[InvisibleSpace]", "\<\" cores: \"\>", 
+   "\[InvisibleSpace]", 
+   DynamicBox[ToBoxes[FeynRules`FR$Count1, StandardForm],
+    ImageSizeCache->{14.390625, {0., 8.}}], 
+   "\[InvisibleSpace]", "\<\" / \"\>", "\[InvisibleSpace]", "94"}],
+  SequenceForm[
+  "Flavor expansion of the vertices distributed over ", 6, " cores: ", 
+   Dynamic[FeynRules`FR$Count1], " / ", 94],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.9368287162769814`*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"62fb626c-fe98-48b6-a126-9d2fb8adfa91"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   StyleBox["\<\"\\nWriting\"\>",
+    StripOnInput->False,
+    LineColor->RGBColor[0, 0, 1],
+    FrontFaceColor->RGBColor[0, 0, 1],
+    BackFaceColor->RGBColor[0, 0, 1],
+    GraphicsColor->RGBColor[0, 0, 1],
+    FontColor->RGBColor[0, 0, 1]], 
+   "\[InvisibleSpace]", "\<\" vertices file 'lgrng1.mdl'\\nand appending \
+variable file 'func1.mdl', particle file 'prtcls1.mdl' and variable file \
+'vars1.mdl'.\"\>"}],
+  SequenceForm[
+   Style["\nWriting", 
+    RGBColor[0, 0, 1]], 
+   " vertices file 'lgrng1.mdl'\nand appending variable file 'func1.mdl', \
+particle file 'prtcls1.mdl' and variable file 'vars1.mdl'."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.936828719600235*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"1ebcfe99-af5c-4f8d-8a15-c9d3a43ddb50"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   StyleBox["\<\"\\nFinishing\"\>",
+    StripOnInput->False,
+    LineColor->RGBColor[0, 0, 1],
+    FrontFaceColor->RGBColor[0, 0, 1],
+    BackFaceColor->RGBColor[0, 0, 1],
+    GraphicsColor->RGBColor[0, 0, 1],
+    FontColor->RGBColor[0, 0, 1]], 
+   "\[InvisibleSpace]", "\<\" vertices file 'lgrng1.mdl'.\"\>"}],
+  SequenceForm[
+   Style["\nFinishing", 
+    RGBColor[0, 0, 1]], " vertices file 'lgrng1.mdl'."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.936828720882725*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"a6f260dc-2969-4050-ad97-2342d7bf84bc"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   StyleBox["\<\"Finishing\"\>",
+    StripOnInput->False,
+    LineColor->RGBColor[0, 0, 1],
+    FrontFaceColor->RGBColor[0, 0, 1],
+    BackFaceColor->RGBColor[0, 0, 1],
+    GraphicsColor->RGBColor[0, 0, 1],
+    FontColor->RGBColor[0, 0, 1]], 
+   "\[InvisibleSpace]", "\<\" internal parameter file 'func1.mdl'.\"\>"}],
+  SequenceForm[
+   Style["Finishing", 
+    RGBColor[0, 0, 1]], " internal parameter file 'func1.mdl'."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.9368287208847933`*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"dc98dcc7-0e85-4374-88ef-6ee8845d7fc3"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   StyleBox["\<\"\\nDone\"\>",
+    StripOnInput->False,
+    LineColor->RGBColor[0, 0, 1],
+    FrontFaceColor->RGBColor[0, 0, 1],
+    BackFaceColor->RGBColor[0, 0, 1],
+    GraphicsColor->RGBColor[0, 0, 1],
+    FontColor->RGBColor[0, 0, 1]], 
+   "\[InvisibleSpace]", "\<\" in 0.22min!\"\>"}],
+  SequenceForm[
+   Style["\nDone", 
+    RGBColor[0, 0, 1]], " in 0.22min!"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.917125142850428*^9, 3.9182299895739326`*^9, 
+  3.919422555766083*^9, 3.920572523925581*^9, 3.9206401290582943`*^9, 
+  3.922467989457576*^9, 3.922729183754117*^9, 3.922969698389937*^9, 
+  3.922970680258116*^9, 3.922973377560412*^9, 3.9368237702876873`*^9, 
+  3.936824087469396*^9, 3.936828720899584*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"6498b761-636d-4ff2-88e2-e46f23828454"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1440., 782.25},
+WindowMargins->{{1440, Automatic}, {Automatic, 0}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (November 18, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"e89c066d-fb97-4257-a62d-29b071eb8e65"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 198, 3, 29, "Input",ExpressionUUID->"79a2711f-11c7-40a7-8788-a41a4ecfea43"],
+Cell[759, 25, 402, 9, 51, "Input",ExpressionUUID->"7ce67e36-ae85-4bc1-ab54-8df1371b6fa7"],
+Cell[CellGroupData[{
+Cell[1186, 38, 373, 7, 29, "Input",ExpressionUUID->"303a03c8-5c62-4801-a9e8-5cd01982ad7a"],
+Cell[1562, 47, 895, 12, 33, "Output",ExpressionUUID->"d69b4cb1-ec89-4608-a868-d66ccf714a7a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2494, 64, 205, 4, 29, "Input",ExpressionUUID->"3db56444-8d93-4abf-935e-aeeed6853c84"],
+Cell[2702, 70, 869, 14, 75, "Output",ExpressionUUID->"17dff783-c0fd-49f3-8790-0a16736e799a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3608, 89, 224, 4, 29, "Input",ExpressionUUID->"84e0b21b-1f19-43b2-ac85-385fa1c8003d"],
+Cell[CellGroupData[{
+Cell[3857, 97, 359, 6, 25, "Print",ExpressionUUID->"b7f0ee4e-a484-45f6-aa07-5bcb544be3cd"],
+Cell[4219, 105, 640, 13, 25, "Print",ExpressionUUID->"59f0bd92-f94a-4483-a337-810f898ecf8c"],
+Cell[4862, 120, 409, 7, 25, "Print",ExpressionUUID->"40e83551-1e0f-4231-b21f-0cf553b8d6e7"],
+Cell[5274, 129, 343, 6, 25, "Print",ExpressionUUID->"999a66d1-9343-4fca-ae64-86f18fc1e78a"],
+Cell[5620, 137, 354, 6, 25, "Print",ExpressionUUID->"4d28f397-9001-4f0b-bf45-a6a483a3ee04"],
+Cell[5977, 145, 406, 7, 25, "Print",ExpressionUUID->"5c25b6a1-c9a0-4712-a827-b1f89200ea2a"],
+Cell[6386, 154, 405, 7, 25, "Print",ExpressionUUID->"722c64ed-db58-4cd5-bc33-4f8e7e223e2e"],
+Cell[6794, 163, 343, 6, 25, "Print",ExpressionUUID->"36bdbd15-6448-411c-9acd-77a6b5ef8b84"],
+Cell[7140, 171, 373, 6, 23, "Print",ExpressionUUID->"76803df4-857e-49de-8996-2df1a006ff86"],
+Cell[7516, 179, 345, 6, 25, "Print",ExpressionUUID->"c94d893b-3afb-4240-9dc9-980702f22dcf"],
+Cell[7864, 187, 410, 7, 25, "Print",ExpressionUUID->"44d6ae9b-db41-4c1e-9ffd-b4825289a9f2"]
+}, Open  ]]
+}, Open  ]],
+Cell[8301, 198, 284, 5, 29, "Input",ExpressionUUID->"1d5de7af-e694-487f-ab84-c4d8975a754b"],
+Cell[CellGroupData[{
+Cell[8610, 207, 159, 3, 98, "Title",ExpressionUUID->"df148e8b-ec56-4e92-9d8c-21ac05c839df"],
+Cell[8772, 212, 244, 4, 35, "Text",ExpressionUUID->"74a59a07-ed3f-473c-830e-e885a1549ad4"],
+Cell[CellGroupData[{
+Cell[9041, 220, 1388, 22, 51, "Input",ExpressionUUID->"9721c06f-7988-4bf2-b675-d90783d1982f"],
+Cell[CellGroupData[{
+Cell[10454, 246, 653, 11, 39, "Print",ExpressionUUID->"097a07a5-228a-455d-84b2-6dd6d7d80018"],
+Cell[11110, 259, 671, 11, 39, "Print",ExpressionUUID->"910757ec-db25-4c99-a63d-ce814caa60a1"],
+Cell[11784, 272, 652, 11, 39, "Print",ExpressionUUID->"ef90d3d9-bbcf-4564-be11-5ac470508e67"],
+Cell[12439, 285, 776, 15, 39, "Print",ExpressionUUID->"d338eba0-33e8-44ec-8c83-416755ba37bb"],
+Cell[13218, 302, 637, 11, 38, "Print",ExpressionUUID->"1536ebd8-24b7-44ff-83b8-24d85c811594"],
+Cell[13858, 315, 681, 12, 39, "Print",ExpressionUUID->"61fc5518-febe-4e56-a84a-b072be517231"],
+Cell[14542, 329, 631, 11, 38, "Print",ExpressionUUID->"85491d62-7fee-4496-964c-e629df17be44"],
+Cell[15176, 342, 661, 11, 39, "Print",ExpressionUUID->"889534b9-963f-4028-a19c-d292358ee0e8"],
+Cell[15840, 355, 664, 11, 39, "Print",ExpressionUUID->"bedf83c6-e5d3-4189-b4c7-66f04ddabdf5"],
+Cell[16507, 368, 662, 11, 39, "Print",ExpressionUUID->"57306c99-d85c-4cc6-988d-d259f239578b"],
+Cell[17172, 381, 839, 16, 59, "Print",ExpressionUUID->"c44be27f-9bcc-4d17-8d0c-f306b89385da"],
+Cell[18014, 399, 1124, 21, 39, "Print",ExpressionUUID->"f48252ca-9868-4211-815d-7e0567fe9d5f"],
+Cell[19141, 422, 1120, 21, 39, "Print",ExpressionUUID->"74482197-d21e-4ced-962e-cf67201095f7"],
+Cell[20264, 445, 651, 11, 39, "Print",ExpressionUUID->"00e4cbe1-0080-42f2-adda-4860b1c2888e"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20964, 462, 209, 4, 68, "Section",ExpressionUUID->"c827882f-085e-408d-82be-d305b5ee08ea"],
+Cell[21176, 468, 318, 6, 35, "Text",ExpressionUUID->"e89f5a82-be4c-47ba-b87d-fd6620df5e5c"],
+Cell[CellGroupData[{
+Cell[21519, 478, 426, 7, 33, "Input",ExpressionUUID->"a1dcbc83-6f3c-4475-b836-c96150d3f83d"],
+Cell[21948, 487, 924, 21, 52, "Output",ExpressionUUID->"b4c03e05-9321-43c0-97c1-c04674d486ab"]
+}, Open  ]],
+Cell[22887, 511, 177, 3, 29, "Input",ExpressionUUID->"097fbe90-8a5a-45a3-a91a-07a2366b2b6e"],
+Cell[CellGroupData[{
+Cell[23089, 518, 317, 5, 29, "Input",ExpressionUUID->"7b015477-bb33-4b70-a08b-c931e8c7ad38"],
+Cell[CellGroupData[{
+Cell[23431, 527, 507, 8, 25, "Print",ExpressionUUID->"1d3529e6-4421-464b-8530-2606503a4995"],
+Cell[23941, 537, 948, 22, 25, "Print",ExpressionUUID->"06525cc3-a952-4d26-95b0-68841aa3cee8"],
+Cell[24892, 561, 940, 22, 25, "Print",ExpressionUUID->"309d8a03-e5aa-4c12-9dba-c338a4cc60b9"],
+Cell[25835, 585, 1052, 27, 44, "Print",ExpressionUUID->"c88565d9-c04a-413f-a289-a79e04d13cf9"],
+Cell[26890, 614, 911, 22, 44, "Print",ExpressionUUID->"feab83ad-cbab-42a9-8620-135921c9cb73"],
+Cell[27804, 638, 926, 22, 44, "Print",ExpressionUUID->"c8143573-f83d-4ec1-9e6f-0777b06734a8"],
+Cell[28733, 662, 926, 22, 44, "Print",ExpressionUUID->"875f381a-1532-45f6-8a1c-c3147e662457"],
+Cell[29662, 686, 928, 22, 44, "Print",ExpressionUUID->"308186c2-c259-4cf3-9597-1c2333a63a7b"],
+Cell[30593, 710, 462, 8, 23, "Print",ExpressionUUID->"4616de57-6568-43f9-9e3b-e3333305024e"],
+Cell[31058, 720, 734, 16, 25, "Print",ExpressionUUID->"b9ed8dcb-6b2b-47ba-9470-d93e198a39a2"],
+Cell[31795, 738, 491, 8, 25, "Print",ExpressionUUID->"aa168234-7378-413e-8d7b-b176d0abb506"],
+Cell[32289, 748, 673, 13, 25, "Print",ExpressionUUID->"37f68f9a-0a38-4852-88fb-0deba0e3a550"],
+Cell[32965, 763, 713, 14, 25, "Print",ExpressionUUID->"b82ec79e-32b4-4959-a6d4-225d82fde993"],
+Cell[33681, 779, 522, 9, 25, "Print",ExpressionUUID->"a5eb3b56-0d1b-4f10-bfb1-be24d365013e"],
+Cell[34206, 790, 1015, 21, 25, "Print",ExpressionUUID->"0a03677e-25e5-4b9c-b527-20ef37536d32"],
+Cell[35224, 813, 604, 12, 25, "Print",ExpressionUUID->"8a6caa1e-6ff3-47c1-a01a-05a90024ba5b"],
+Cell[35831, 827, 966, 19, 25, "Print",ExpressionUUID->"62fb626c-fe98-48b6-a126-9d2fb8adfa91"],
+Cell[36800, 848, 1119, 26, 64, "Print",ExpressionUUID->"1ebcfe99-af5c-4f8d-8a15-c9d3a43ddb50"],
+Cell[37922, 876, 912, 22, 44, "Print",ExpressionUUID->"a6f260dc-2969-4050-ad97-2342d7bf84bc"],
+Cell[38837, 900, 927, 22, 25, "Print",ExpressionUUID->"dc98dcc7-0e85-4374-88ef-6ee8845d7fc3"],
+Cell[39767, 924, 870, 22, 44, "Print",ExpressionUUID->"6498b761-636d-4ff2-88e2-e46f23828454"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
