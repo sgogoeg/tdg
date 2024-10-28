@@ -1,0 +1,30 @@
+Start processing inputs/input_Z10_20241027220612_part_6.csv at 27/10/2024 22:06:14
+End processing inputs/input_Z10_20241027220612_part_6.csv at 27/10/2024 22:14:57: SUCCESS
+Deleted inputs/input_Z10_20241027220612_part_6.csv after successful processing.
+Start processing inputs/input_Z10_20241027220612_part_8.csv at 27/10/2024 22:14:57
+End processing inputs/input_Z10_20241027220612_part_8.csv at 27/10/2024 22:34:25: SUCCESS
+Deleted inputs/input_Z10_20241027220612_part_8.csv after successful processing.
+Start processing inputs/input_Z10_20241027220612_part_9.csv at 27/10/2024 22:34:25
+End processing inputs/input_Z10_20241027220612_part_9.csv at 27/10/2024 22:57:20: SUCCESS
+Deleted inputs/input_Z10_20241027220612_part_9.csv after successful processing.
+Start processing inputs/input_Z10_20241027220612_part_7.csv at 27/10/2024 22:57:20
+End processing inputs/input_Z10_20241027220612_part_7.csv at 27/10/2024 23:10:17: SUCCESS
+Deleted inputs/input_Z10_20241027220612_part_7.csv after successful processing.
+Start processing inputs/input_Z10_20241027220612_part_2.csv at 27/10/2024 23:10:17
+End processing inputs/input_Z10_20241027220612_part_2.csv at 27/10/2024 23:19:27: SUCCESS
+Deleted inputs/input_Z10_20241027220612_part_2.csv after successful processing.
+Start processing inputs/input_Z10_20241027220612_part_4.csv at 27/10/2024 23:19:27
+End processing inputs/input_Z10_20241027220612_part_4.csv at 27/10/2024 23:28:41: SUCCESS
+Deleted inputs/input_Z10_20241027220612_part_4.csv after successful processing.
+Start processing inputs/input_Z10_20241027220612_part_5.csv at 27/10/2024 23:28:41
+End processing inputs/input_Z10_20241027220612_part_5.csv at 27/10/2024 23:38:21: SUCCESS
+Deleted inputs/input_Z10_20241027220612_part_5.csv after successful processing.
+Start processing inputs/input_Z10_20241027220612_part_3.csv at 27/10/2024 23:38:21
+End processing inputs/input_Z10_20241027220612_part_3.csv at 27/10/2024 23:47:49: SUCCESS
+Deleted inputs/input_Z10_20241027220612_part_3.csv after successful processing.
+Start processing inputs/input_Z10_20241027220612_part_0.csv at 27/10/2024 23:47:49
+End processing inputs/input_Z10_20241027220612_part_0.csv at 27/10/2024 23:54:55: SUCCESS
+Deleted inputs/input_Z10_20241027220612_part_0.csv after successful processing.
+Start processing inputs/input_Z10_20241027220612_part_1.csv at 27/10/2024 23:54:55
+End processing inputs/input_Z10_20241027220612_part_1.csv at 28/10/2024 00:02:54: SUCCESS
+Deleted inputs/input_Z10_20241027220612_part_1.csv after successful processing.
