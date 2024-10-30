@@ -7,7 +7,7 @@ El camino de micromegas, el nombre del input file y el nombre del output file so
 
 Example:
 
-python3 exploration.py --input input_Z10.csv --output output_Z10.csv --micromegas-path /home/sgogoeg/heptools/micromegas_6.0
+python3 exploration.py --input input_Z8_test.csv --output output_Z8.csv --micromegas-path /home/sgogoeg/heptools/micromegas_6.0
 '''
 
 import argparse
@@ -23,11 +23,11 @@ parser.add_argument('--micromegas-path', type=str, required=True, help='Path to 
 args = parser.parse_args()
 
 # Para definir los parametros a manipular, debe corresponder con los nombres y el orden de los parámetros en el modelo entregado a micrOmegas
-params = ['MDM1', 'DMlamb41', 'MDM5', 'DMlamb45', 'DMlamb415', 'DMlambS1', 'DMlambS5', 'DMlamb6151', 'DMlamb6152', 'DMlambS41', 'DMlambS21', 
-          'DMlambS45', 'DMlambS25', 'DMlamb6S15' ,'DMlambE10'] 
+params = ['MDM1', 'DMlamb41', 'MDM4', 'DMlamb44', 'DMlamb414', 'DMlambS1', 'DMlambS4', 'DMlamb6141', 'DMlamb6142', 'DMlambS41', 'DMlambS21', 
+          'DMlambS44', 'DMlambS24', 'DMlamb6S14' ,'DMlambE8'] 
 
 # Para limpiar el data.par al principio
-data_par_path = f'{args.micromegas_path}/EffZ10/dataLE10.par'
+data_par_path = f'{args.micromegas_path}/EffZ8/dataLE8.par'
 with open(data_par_path, 'w') as tempfile:
     pass
 
@@ -45,7 +45,7 @@ with open(args.input, 'r') as csvfile:
             tempfile.write(f"{params[0]} {row[0]}\n{params[1]} {row[1]}\n{params[2]} {row[2]}\n{params[3]} {row[3]}\n{params[4]} {row[4]}\n{params[5]} {row[5]}\n{params[6]} {row[6]}\n{params[7]} {row[7]}\n{params[8]} {row[8]}\n{params[9]} {row[9]}\n{params[10]} {row[10]}\n{params[11]} {row[11]}\n{params[12]} {row[12]}\n{params[13]} {row[13]}\n{params[14]} {row[14]}")
         
         # Tomando el resultado
-        result = subprocess.run(['./main', data_par_path], cwd=f'{args.micromegas_path}/EffZ10/' ,stdout=subprocess.PIPE, text=True)
+        result = subprocess.run(['./main', data_par_path], cwd=f'{args.micromegas_path}/EffZ8/' ,stdout=subprocess.PIPE, text=True)
 
         # Variable para almacenar la densidad de reliquia
         omega_value_1 = None

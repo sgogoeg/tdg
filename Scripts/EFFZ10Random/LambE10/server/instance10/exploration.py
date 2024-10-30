@@ -45,7 +45,7 @@ with open(args.input, 'r') as csvfile:
             tempfile.write(f"{params[0]} {row[0]}\n{params[1]} {row[1]}\n{params[2]} {row[2]}\n{params[3]} {row[3]}\n{params[4]} {row[4]}\n{params[5]} {row[5]}\n{params[6]} {row[6]}\n{params[7]} {row[7]}\n{params[8]} {row[8]}\n{params[9]} {row[9]}\n{params[10]} {row[10]}\n{params[11]} {row[11]}\n{params[12]} {row[12]}\n{params[13]} {row[13]}\n{params[14]} {row[14]}")
         
         # Tomando el resultado
-        result = subprocess.run(['./main', data_par_path], cwd=f'{args.micromegas_path}/EffZ10/' ,stdout=subprocess.PIPE, text=True)
+        result = subprocess.run(['./main', data_par_path], cwd=f'{args.micromegas_path}/EffZ8/' ,stdout=subprocess.PIPE, text=True)
 
         # Variable para almacenar la densidad de reliquia
         omega_value_1 = None
