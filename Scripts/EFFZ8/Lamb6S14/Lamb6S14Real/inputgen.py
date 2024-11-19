@@ -66,7 +66,7 @@ DMlambS41 = 1e-6
 DMlambS21 = 0
 DMlambS44 = 0
 DMlambS24 = 0 
-DMlamb6S14 = 1e-2
+DMlamb6S14 = 1e-6
 DMlambE8 = 0
 
 
