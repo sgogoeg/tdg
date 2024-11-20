@@ -67,7 +67,7 @@ DMlambS21 = 0
 DMlambS45 = 0
 DMlambS25 = 0 
 DMlamb6S15 = 0
-DMlambE10 = 1
+DMlambE10 = 1e-6
 
 
 input = []
