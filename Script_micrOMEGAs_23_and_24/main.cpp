@@ -208,8 +208,6 @@ int main(int argc,char** argv)
   int i,err; 
   printf("\n==== Calculation of relic density =====\n");   
 
-  double T = ???;
-
   // Declare a variable to store the address returned by newProcess
   numout* processAddress;
 
