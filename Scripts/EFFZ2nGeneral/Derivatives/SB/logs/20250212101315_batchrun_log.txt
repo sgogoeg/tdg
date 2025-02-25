@@ -1,0 +1,30 @@
+Start processing inputs/input_Z8_20250212101252_part_3.csv at 12/02/2025 10:13:15
+End processing inputs/input_Z8_20250212101252_part_3.csv at 12/02/2025 10:20:56: SUCCESS
+Deleted inputs/input_Z8_20250212101252_part_3.csv after successful processing.
+Start processing inputs/input_Z8_20250212101252_part_1.csv at 12/02/2025 10:20:56
+End processing inputs/input_Z8_20250212101252_part_1.csv at 12/02/2025 10:27:50: SUCCESS
+Deleted inputs/input_Z8_20250212101252_part_1.csv after successful processing.
+Start processing inputs/input_Z8_20250212101252_part_8.csv at 12/02/2025 10:27:50
+End processing inputs/input_Z8_20250212101252_part_8.csv at 12/02/2025 10:47:33: SUCCESS
+Deleted inputs/input_Z8_20250212101252_part_8.csv after successful processing.
+Start processing inputs/input_Z8_20250212101252_part_4.csv at 12/02/2025 10:47:33
+End processing inputs/input_Z8_20250212101252_part_4.csv at 12/02/2025 10:55:11: SUCCESS
+Deleted inputs/input_Z8_20250212101252_part_4.csv after successful processing.
+Start processing inputs/input_Z8_20250212101252_part_2.csv at 12/02/2025 10:55:11
+End processing inputs/input_Z8_20250212101252_part_2.csv at 12/02/2025 11:02:27: SUCCESS
+Deleted inputs/input_Z8_20250212101252_part_2.csv after successful processing.
+Start processing inputs/input_Z8_20250212101252_part_5.csv at 12/02/2025 11:02:27
+End processing inputs/input_Z8_20250212101252_part_5.csv at 12/02/2025 11:11:49: SUCCESS
+Deleted inputs/input_Z8_20250212101252_part_5.csv after successful processing.
+Start processing inputs/input_Z8_20250212101252_part_0.csv at 12/02/2025 11:11:49
+End processing inputs/input_Z8_20250212101252_part_0.csv at 12/02/2025 11:18:17: SUCCESS
+Deleted inputs/input_Z8_20250212101252_part_0.csv after successful processing.
+Start processing inputs/input_Z8_20250212101252_part_7.csv at 12/02/2025 11:18:17
+End processing inputs/input_Z8_20250212101252_part_7.csv at 12/02/2025 11:32:47: SUCCESS
+Deleted inputs/input_Z8_20250212101252_part_7.csv after successful processing.
+Start processing inputs/input_Z8_20250212101252_part_6.csv at 12/02/2025 11:32:47
+End processing inputs/input_Z8_20250212101252_part_6.csv at 12/02/2025 11:41:18: SUCCESS
+Deleted inputs/input_Z8_20250212101252_part_6.csv after successful processing.
+Start processing inputs/input_Z8_20250212101252_part_9.csv at 12/02/2025 11:41:18
+End processing inputs/input_Z8_20250212101252_part_9.csv at 12/02/2025 12:04:30: SUCCESS
+Deleted inputs/input_Z8_20250212101252_part_9.csv after successful processing.

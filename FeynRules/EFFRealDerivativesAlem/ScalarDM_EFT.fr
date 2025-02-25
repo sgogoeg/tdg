@@ -1,0 +1,98 @@
+(***************************************************************************************************************)
+(******                     This is the FeynRules mod-file for a Scalar Dark Matter EFT                   ******)
+(****** Choose whether Feynman gauge is desired.                                                          ******)
+(****** If set to False, unitary gauge is assumed.                                                          ****)
+(****** Feynman gauge is especially useful for CalcHEP/CompHEP where the calculation is 10-100 times faster. ***)
+(****** Feynman gauge is not supported in MadGraph and Sherpa.                                              ****)
+(***************************************************************************************************************)
+
+(* ************************** *)
+(* *****  Information   ***** *)
+(* ************************** *)
+(* This is an add-on of SM model file, use it together with SM.fr *)
+M$ModelName = "ScalarDM_EFT";
+
+M$Information = {
+  Authors      -> {"S. González"}, 
+  Version      -> "1.0",
+  Date         -> "24. 04. 2024",
+  Institutions -> {"Universidad de Antioquia"},
+  Emails       -> {"simon.gonzalezg1@udea.edu.co"},
+  URLs         -> "none"
+};
+
+FeynmanGauge = True;
+
+M$InteractionOrderHierarchy = {
+  {EFF4, 2},
+  {EFF6, 2}
+};
+
+
+(* ************************** *)
+(* **** Particle classes **** *)
+(* ************************** *)
+M$ClassesDescription = {
+
+(* Only one extra particle: Our Scalar DM *)
+
+(* Not sure about default values *)
+
+  S[12] == {
+    ClassName       -> SDM,
+    SelfConjugate   -> True,
+    Mass            -> {MSDM,1},
+    Width           -> {WSDM,0},
+    PropagatorLabel -> "SDM",
+    PDG             -> 300,
+    ParticleName    -> "~SDM",
+    FullName        -> "Scalar Dark Matter"
+  }
+};
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+M$Parameters = {
+
+(* External parameters *)
+
+(* 6 Wilson coefficients for the operators *)
+
+  WLap == {
+    ParameterType -> External,
+    BlockName     -> DIM6COEFF,
+    OrderBlock    -> 6,
+    Value         -> 0.0,
+    TeX           -> Subscript[W,Lap],
+    InteractionOrder -> {EFF6,2},
+    Description   -> "Coeficcient of dim-6 Operator"
+  }
+  
+  (* Internal Parameters *)
+
+};
+  
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* Operators *)
+
+(* Dim 4 operators *)
+
+LDRENOM := Block[{ii, feynmangaugerules},
+	feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
+	MSDM^2/2 (SDM SDM) /.feynmangaugerules];
+
+(* Dim 6 operators *)
+
+LD6:=Block[{mu, ii, feynmangaugerules},
+	feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
+	LD61 = 0;
+	LD62 = WLap del[del[Phibar[ii] Phi[ii],mu],mu] SDM SDM ;
+	LD61 + LD62
+	/.feynmangaugerules];
+
+LSDMEFT:= LSM + LDRENOM + LD6;
