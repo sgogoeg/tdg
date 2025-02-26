@@ -218,23 +218,13 @@ M$Parameters = {
     Description      -> "Coupling of DM particles"
   },
   
-  DMdelA == {
+  DMdelAB == {
     ParameterType -> External,
     BlockName     -> Dark,
     OrderBlock    -> 20,
     Value         -> 0,
     InteractionOrder -> {QED,2},
-    TeX           -> Subscript[del,A],
-    Description      -> "Coupling of DM particles"
-  },
-  
-  DMdelB == {
-    ParameterType -> External,
-    BlockName     -> Dark,
-    OrderBlock    -> 21,
-    Value         -> 0,
-    InteractionOrder -> {QED,2},
-    TeX           -> Subscript[del,B],
+    TeX           -> Subscript[del,AB],
     Description      -> "Coupling of DM particles"
   },
 
@@ -294,8 +284,8 @@ V2EFF := Block[{feynmangaugerules},
 
 VdelEFF := Block[{mu, ii, feynmangaugerules},
   feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
-   DMdelA del[DM1bar, mu] del[DM1, mu] DM4 DM4 + DMdelB DM1bar DM1 del[DM4, mu] del[DM4, mu]
-   + DMdelSA Phibar[ii] Phi[ii] del[DM1bar, mu] del[DM1, mu] + DMdelSB Phibar[ii] Phi[ii] del[DM4, mu] del[DM4, mu]
+   DMdelAB DM1bar del[DM1, mu] DM4 del[DM4, mu]
+   + DMdelSA del[Phibar[ii],mu] Phi[ii] del[DM1bar, mu] DM1 + DMdelSA Phibar[ii] del[Phi[ii], mu] DM1bar del[DM1, mu] + DMdelSB Phibar[ii] del[Phi[ii],mu] DM4 del[DM4, mu]
   /.feynmangaugerules];  
 
 (* Complete Lagrangian *)

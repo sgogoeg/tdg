@@ -9,7 +9,7 @@ import numpy as np
 
 # Número de puntos dentro del intervalo 
 
-num_samples = 200
+num_samples = 150
 
 # Coeficiente
 

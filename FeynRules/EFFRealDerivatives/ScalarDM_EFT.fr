@@ -91,7 +91,7 @@ LDRENOM := Block[{ii, feynmangaugerules},
 LD6:=Block[{mu, ii, feynmangaugerules},
 	feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
 	LD61 = 0;
-	LD62 = WLap Phibar[ii] Phi[ii] del[SDM, mu] del[SDM, mu] ;
+	LD62 = WLap Phibar[ii] del[Phi[ii],mu] SDM del[SDM, mu] ;
 	LD61 + LD62
 	/.feynmangaugerules];
 

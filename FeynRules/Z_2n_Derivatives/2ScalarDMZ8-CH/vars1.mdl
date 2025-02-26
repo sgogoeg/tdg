@@ -17,8 +17,7 @@ DMlamb6S14     |0            | Effective coupling of real DM particle, complex D
 DMlambE8       |0            |Coupling of DM particles                                                  |
 DMdelSA        |0            |Coupling of DM particles                                                  |
 DMdelSB        |0            |Coupling of DM particles                                                  |
-DMdelA         |0            |Coupling of DM particles                                                  |
-DMdelB         |0            |Coupling of DM particles                                                  |
+DMdelAB        |0            |Coupling of DM particles                                                  |
 aEWM1          |127.9        |Inverse of the EW coupling constant at the Z pole                         |
 Gf             |0.0000116637 |Fermi constant                                                            |
 aS             |0.1184       |Strong coupling constant at the Z pole                                    |

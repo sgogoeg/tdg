@@ -27,7 +27,7 @@ params = ['MDM1', 'DMlamb41', 'MDM4', 'DMlamb44', 'DMlamb414', 'DMlambS1', 'DMla
           'DMlambS44', 'DMlambS24', 'DMlamb6S14' ,'DMlambE8', 'DMdelSA', 'DMdelSB', 'DMdelAB'] 
 
 # Para limpiar el data.par al principio
-data_par_path = f'{args.micromegas_path}/EffZ2nDerivatives/dataSB.par'
+data_par_path = f'{args.micromegas_path}/EffZ2nDerivatives/dataSA.par'
 with open(data_par_path, 'w') as tempfile:
     pass
 
