@@ -68,9 +68,9 @@ DMlambS44 = 0
 DMlambS24 = 0 
 DMlamb6S14 = 0
 DMlambE8 = 0
-DMdelSA = 0
-DMdelSB = 1e-5
-DMdelAB = 1e-5
+DMdelSA = 1e-5
+DMdelSB = 0
+DMdelAB = 1e-6
 
 
 input = []
@@ -78,7 +78,7 @@ input = []
 for m1 in M1:
     for m4 in M4:
         for c in coupling:
-            DMdelSA = c
+            DMdelSB = c
             input_temp = np.array([m1, DMlamb41, m4, DMlamb44, DMlamb414, DMlambS1, DMlambS4, DMlamb6141, DMlamb6142, DMlambS41, 
                                    DMlambS21, DMlambS44, DMlambS24, DMlamb6S14, DMlambE8, DMdelSA, DMdelSB, DMdelAB])
             input.append(input_temp)
