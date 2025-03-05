@@ -9,7 +9,7 @@ import numpy as np
 
 # Número de puntos dentro del intervalo 
 
-num_samples = 1000
+num_samples = 320
 
 startcoup = -2
 stopcoup =  1
